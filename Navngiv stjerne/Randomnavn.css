@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+  /* Sikre at baggrunden er full screen  */
+  #background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #background img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ligger bag overlay */
+    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+}
+  
+  /* Overlay content container, ligger menu og logo henover video */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;    /* lodret stak */
+    justify-content: flex-start; /* placér elementer fra toppen */
+    align-items: center;       /* centrer horisontalt */
+    padding-top: 50px;        /* flytter h2 og p længere ned fra toppen */
+    text-align: center;
+}
+  .overlay h2 {
+    font-family: exo 2 , sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 100px;
+}
+
+
+#navn {
+    font-size: 100px;             /* lidt større, så det skiller sig ud */
+    font-family: exo 2 , sans-serif;
+    color: white;              /* gylden farve, passer til stjerner */
+    text-align: center;          /* centreret */
+    margin: 100px 0;              /* afstand over og under */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* gør teksten mere læsbar på baggrund */
+}
+
+.overlay button {
+    padding: 15px 30px;          /* større knap */
+    font-size: 18px;             /* tydelig tekst */
+    font-family: audiowide, sans-serif;
+    border: none;                /* ingen kantlinje */
+    border-radius: 30px;         /* afrundede hjørner */
+    background-color: #213768;   /* flot blå farve */
+    color: white;                /* tekstfarve */
+    cursor: pointer;             /* pointer ved hover */
+    transition: all 0.3s ease;  /* glidende effekt */
+    border: 4px solid #12D7E1;
+}
+
+button:hover {
+    background-color: #63B8FF;   /* lysere blå ved hover */
+    transform: scale(1.05);      /* lille zoom-effekt */
+}
+
+.navigation-arrows {
+    position: fixed;   /* så de bliver nederst uanset scroll */
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;  /* venstre og højre */
+    padding: 0 50px;   /* afstand fra kanterne */
+    z-index: 10;
+}
+
+.navigation-arrows img {
+    width: 100px;  /* størrelse på pilene */
+    height: auto;
+    cursor: pointer;
+}

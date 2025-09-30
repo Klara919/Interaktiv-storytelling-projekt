@@ -1,0 +1,99 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+  /* Sikre at baggrunden er full screen  */
+  #Background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ligger bag overlay */
+    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+}
+  
+  /* Overlay content container, ligger menu og logo henover video */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+
+#button-container {
+    margin-top: 200px; /* juster procenten til hvor langt ned du vil have den */
+    display: flex;
+    justify-content: center;
+
+}
+
+/* Animationer for tekst og knap */
+@keyframes pulseGlow {
+    0% {
+      text-shadow: 0 0 10px #12D7E1, 0 0 20px #12D7E1, 0 0 30px #12D7E1;
+    }
+    50% {
+      text-shadow: 0 0 20px #12D7E1, 0 0 40px #12D7E1, 0 0 60px #12D7E1;
+    }
+    100% {
+      text-shadow: 0 0 10px #12D7E1, 0 0 20px #12D7E1, 0 0 30px #12D7E1;
+    }
+  }
+  
+  @keyframes buttonGlow {
+    0% {
+      box-shadow: 0 0 10px #12D7E1, 0 0 20px #12D7E1;
+    }
+    50% {
+      box-shadow: 0 0 20px #12D7E1, 0 0 40px #12D7E1;
+    }
+    100% {
+      box-shadow: 0 0 10px #12D7E1, 0 0 20px #12D7E1;
+    }
+  }
+  
+  h1 {
+    font-family: 'Audiowide', sans-serif;
+    color: white;
+    text-align: center;
+    margin-top: 250px;
+    font-size: 60px;
+    animation: pulseGlow 2s infinite alternate;
+  }
+  
+  #button-container a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #213768;
+    color: white;
+    padding: 40px 100px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: 'Audiowide', sans-serif;
+    border: 4px solid #12D7E1;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    animation: buttonGlow 2s infinite alternate;
+  }
+
+#button-container a:hover {
+    background-color: #12D7E1;
+    border-color: white; 
+}
+
