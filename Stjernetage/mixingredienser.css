@@ -153,7 +153,6 @@ details .content {
     top: 100%; /* Placerer indholdet lige under summary */
     left: 0;
     background-color: #FFD959; /* Ændrer baggrundsfarven til gul */
-
     padding: 10px 20px; /* Giver mere indre afstand for bedre læsbarhed */
     width: 250px; /* Angiver bredden på boksen */
     height: auto; /* Sørger for, at højden tilpasser sig indholdet */
@@ -211,7 +210,7 @@ details[open] summary::after {
   #helium-section {
     position: absolute;
     top: 10rem;
-    right: 10rem;
+    right: 12rem;
   }
 
   .draggable {

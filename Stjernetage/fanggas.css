@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: url('images/stjernehimmel.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* Baggrundsbillede fylder hele skærmen */
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Game container ovenpå baggrund */
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+  
+  /* Overlay content container, ligger menu og logo henover video */
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    color: white;
+}
+
+h1 {
+    font-family: 'Future Earth', sans-serif;
+    color: white;
+    text-align: left;
+    padding-left: 40px;
+    margin-top: 50px;
+    font-size: 100px;
+}
+
+p {
+    font-family: 'Exo 2', sans-serif;
+    color: white;   
+    text-align: left;
+    font-size: 25px;
+    padding-left: 40px;
+    margin-top: -20px;
+
+}
+
+
+/* Bowl */
+#bowl {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 120px;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Gas kugler */
+.gas {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0,255,255,0.7);
+    box-shadow: 0 0 10px rgba(0,255,255,0.5);
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(3px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Score og besked */
+#score {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    font-size: 40px;
+}
+
+
+
+/* Pop-animation */
+.pop {
+    animation: pop 0.3s forwards;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+
+#button-container {
+    position: absolute;
+    top: 500px; /* juster procenten til hvor langt ned du vil have den */
+    left: 750px;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    display: none;
+}
+
+  
+  @keyframes buttonGlow {
+    0% {
+      box-shadow: 0 0 10px #12D7E1, 0 0 20px #12D7E1;
+    }
+    50% {
+      box-shadow: 0 0 20px #12D7E1, 0 0 40px #12D7E1;
+    }
+    100% {
+      box-shadow: 0 0 10px #12D7E1, 0 0 20px #12D7E1;
+    }
+  }
+  
+
+  
+  #button-container a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #213768;
+    color: white;
+    padding: 20px 80px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: 'Audiowide', sans-serif;
+    border: 4px solid #12D7E1;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    animation: buttonGlow 2s infinite alternate;
+  }
+
+#button-container a:hover {
+    background-color: #12D7E1;
+    border-color: white; 
+}

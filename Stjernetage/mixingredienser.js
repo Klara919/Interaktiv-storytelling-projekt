@@ -107,6 +107,6 @@ rightArrow.addEventListener('click', (e) => {
   
     // Redirect når alt er faded
     setTimeout(() => {
-      window.location.href = 'fanggas.html';
+      window.location.href = '../Stjernetage/fanggas.html';
     }, 3000);
   });
