@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+  /* Sikre at baggrunden er full screen  */
+  #background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #background img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ligger bag overlay */
+    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+}
+  
+  /* Overlay content container, ligger menu og logo henover video */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  .overlay h2 {
+    font-family: exo 2 , sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 100px;
+}
+
+
+.star-name-container {
+    text-align: center;
+    margin-top: 100px;
+
+}
+
+#starName {
+    font-size: 24px;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    border-radius: 30px;
+    border: 4px solid #12D7E1;
+        outline: none; /* fjerner den blå kant på */
+ }
+
+
+.keyboard {
+    margin-top: 150px;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+button {
+    font-size: 20px;
+    padding: 15px 20px;
+    margin: 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #213768;
+    color: white;
+    border: 2px solid #12D7E1;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #12D7E1;
+    color: #213768;
+}
+
+.navigation-arrows {
+    position: fixed;   /* så de bliver nederst uanset scroll */
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;  /* venstre og højre */
+    padding: 0 50px;   /* afstand fra kanterne */
+    z-index: 10;
+}
+
+.navigation-arrows img {
+    width: 100px;  /* størrelse på pilene */
+    height: auto;
+    cursor: pointer;
+}
+
+video {
+    position: fixed; /* så den fylder hele skærmen */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999; /* ligger over alt */
+    object-fit: cover;
+}

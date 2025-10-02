@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+#background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #background img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ligger bag overlay */
+    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    /* Gør overlay til flex-container for centrering */
+    display: flex;
+    align-items: center;   /* lodret centreret */
+    justify-content: center; /* horisontalt centreret */
+}
+
+#bowl {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 200px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 32rem;             /* hvor langt ned på siden */
+    left: 55rem;            /* hvor langt til højre */
+    transform: translate(-50%, -50%); /* centreringsjustering omkring punktet */
+    z-index: 1;           /* oven på baggrunden */
+}
+
+#salt {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 40px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 30rem;             /* hvor langt ned på siden */
+    left: 28rem;            /* hvor langt til højre */
+    z-index: 1;           /* oven på baggrunden */
+    cursor: grab;
+    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+
+}
+
+#jern{
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 250px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 31rem;             /* hvor langt ned på siden */
+    left: 73rem;            /* hvor langt til højre */
+    z-index: 1;           /* oven på baggrunden */
+    cursor: grab; /* ændrer cursor til hånd-ikon */
+    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+}
+
+#gryde {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 120px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 32rem;             /* hvor langt ned på siden */
+    left: 65rem;            /* hvor langt til højre */
+    z-index: 1;           /* oven på baggrunden */
+    cursor: grab; /* ændrer cursor til hånd-ikon */
+    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+}
+
+#brint {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 100px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 26rem;             /* hvor langt ned på siden */
+    left: 65rem;            /* hvor langt til højre */
+    z-index: 1;           /* oven på baggrunden */
+    cursor: grab; /* ændrer cursor til hånd-ikon */
+    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+}
+
+
+#kulstof {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 50px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 30rem;             /* hvor langt ned på siden */
+    left: 38rem;            /* hvor langt til højre */
+    z-index: 1;           /* oven på baggrunden */
+    cursor: grab; /* ændrer cursor til hånd-ikon */
+    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+}
+
+#helium {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 100px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 2rem;             /* hvor langt ned på siden */
+    left: 80rem;            /* hvor langt til højre */
+    z-index: 1;           /* oven på baggrunden */
+    cursor: grab; /* ændrer cursor til hånd-ikon */
+    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+}
+
+
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+
+details {
+    position: relative; /* Sørger for, at elementet ikke påvirker andre */
+    font-family: audiowide, sans-serif;
+    font-size: 0.8rem;
+    background-color: #FFD959;
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    box-shadow: #FFD959 0px 0px 10px;
+    
+}
+details[open]{
+    border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0;
+    width: 15.63rem;
+}
+
+details summary {
+    list-style: none; /* Fjerner standard pilen, hvis ønsket */
+    cursor: pointer; /* Gør det tydeligt, at det er klikbart */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+  
+details .content {
+    position: absolute; /* Sørger for, at indholdet åbner nedad */
+    top: 100%; /* Placerer indholdet lige under summary */
+    left: 0;
+    background-color: #FFD959; /* Ændrer baggrundsfarven til gul */
+
+    padding: 10px 20px; /* Giver mere indre afstand for bedre læsbarhed */
+    width: 250px; /* Angiver bredden på boksen */
+    height: auto; /* Sørger for, at højden tilpasser sig indholdet */
+    z-index: 10; /* Sørger for, at det vises over andre elementer */
+    border-radius: 10px; /* Tilføjer afrundede hjørner */
+    box-shadow: 0px 4px 10px #FFD959(0, 0, 0, 0.2); /* Tilføjer en skygge for bedre visuel effekt */
+}
+
+
+details[open] .content {
+    display: block; /* Viser indholdet, når details er åbnet */
+    border-top-left-radius: 0; 
+    border-top-right-radius: 0;
+}
+  
+summary::after {
+    content: "+";
+    font-size: 1rem;
+    margin-left: 1rem;
+    color: #12D7E1;
+    
+}
+
+/* Når dropdown er åben: skift til minus */
+details[open] summary::after {
+    content: "-";
+    
+}
+
+#salt-section {
+    position: absolute;
+    top: 35rem;  
+    left: 22rem;
+  }
+  
+  #jern-section {
+    position: absolute;
+    top: 28rem;
+    right: 8rem;
+    z-index: 1;
+  }
+
+#brint-section {
+    position: absolute;
+    top: 38rem;
+    left: 63rem;
+}
+
+#kulstof-section {
+    position: absolute;
+    top: 26rem;  
+    left: 32rem;
+  }
+
+  #helium-section {
+    position: absolute;
+    top: 10rem;
+    right: 10rem;
+  }
+
+  .draggable {
+    position: absolute;
+    cursor: grab;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+
+
+.navigation-arrows {
+    position: fixed;   /* så de bliver nederst uanset scroll */
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;  /* venstre og højre */
+    padding: 0 50px;   /* afstand fra kanterne */
+    z-index: 10;
+  }
+  
+  .navigation-arrows img {
+    width: 100px;  /* størrelse på pilene */
+    height: auto;
+    cursor: pointer;
+  }
+  
+  video {
+    position: fixed; /* så den fylder hele skærmen */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999; /* ligger over alt */
+    object-fit: cover;
+  }

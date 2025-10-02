@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navngiv din stjerne</title>
+    <link rel="stylesheet" href="randomnavn.css">
+    <script src="random.js" defer></script>
+</head>
+<body>
+
+    <div id="background">
+        <img src="images/stjernehimmel.png" alt="Background">
+      </div>
+
+
+<div class="overlay">
+
+        <h2>Universet døber din stjerne...</h2>
+        <h2 id="navn">...</h2>
+        <button onclick="generateName()">Generer Navn</button>
+
+
+
+
+
+        <div class="navigation-arrows">
+            <a href="navngiv stjerne.html">
+                <img src="images/ArrowL.png" alt="arrowleft">
+            </a>
+            <a href="#" id="rightArrow">
+                <img src="images/ArrowR.png" alt="arrowright">
+            </a>
+        </div>
+
+            <video id="transitionVideo" src="images/Stjernetage.mp4" muted 
+                style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:9999; opacity:0;">
+            </video>
+
+    </div>
+        
+    
+        
+    </body>
+    </html>
