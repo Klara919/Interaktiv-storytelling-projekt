@@ -220,23 +220,6 @@ details[open] summary::after {
 }
 
 
-
-.navigation-arrows {
-    position: fixed;   /* så de bliver nederst uanset scroll */
-    bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;  /* venstre og højre */
-    padding: 0 50px;   /* afstand fra kanterne */
-    z-index: 10;
-  }
-  
-  .navigation-arrows img {
-    width: 100px;  /* størrelse på pilene */
-    height: auto;
-    cursor: pointer;
-  }
-  
   video {
     position: fixed; /* så den fylder hele skærmen */
     top: 0;
