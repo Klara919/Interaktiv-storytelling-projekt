@@ -88,7 +88,7 @@
 
 #bigblue {
     position: absolute;   /* gør det muligt at placere billedet præcist */
-    width: 200px;         /* juster størrelsen */
+    width: 230px;         /* juster størrelsen */
     height: auto;         /* bevarer proportioner */
     top: 32rem;             /* hvor langt ned på siden */
     left: 70rem;            /* hvor langt til højre */
