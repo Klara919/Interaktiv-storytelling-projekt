@@ -127,6 +127,17 @@
     z-index: 1;           /* oven på baggrunden */
 }
 
+#transitionVideo {
+    display: none;               /* skjult indtil afspilning */
+    position: fixed;             /* fast over hele viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;                /* fuld bredde af viewport */
+    height: 100vh;               /* fuld højde af viewport */
+    object-fit: cover;           /* fylder hele skærmen uden at deformere */
+    z-index: 2000;               /* over alt andet */
+    background-color: black;     /* sort baggrund */
+}
 
 
 
