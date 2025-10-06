@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+#background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #background img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ligger bag overlay */
+    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    /* Gør overlay til flex-container for centrering */
+    display: flex;
+    align-items: center;   /* lodret centreret */
+    justify-content: center; /* horisontalt centreret */
+}
+
+.overlay p{
+    font-family: exo 2 , sans-serif;
+    color: #213768;
+    font-size: 20px;
+    margin-top: -30rem;
+    margin-left: 60rem;
+    z-index: 1000;
+
+    background-color: #C7C9D8; 
+    display: inline-block;  /* gør at baggrundsfarven kun er omkring teksten */
+    padding: 20px 40px;
+    border-radius: 10px;        /* afrundede hjørner (valgfrit) */
+}
+
+#weight {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 300px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 27rem;             /* hvor langt ned på siden */
+    left: 50rem;            /* hvor langt til højre */
+    transform: translate(-50%, -50%); /* centreringsjustering omkring punktet */
+    z-index: 1;           /* oven på baggrunden */
+}
+
+
+#sun {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 100px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 30rem;             /* hvor langt ned på siden */
+    left: 44rem;            /* hvor langt til højre */
+    transform: translate(-50%, -50%); /* centreringsjustering omkring punktet */
+    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+
+}
+
+#lilred {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 120px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 33rem;             /* hvor langt ned på siden */
+    left: 80rem;            /* hvor langt til højre */
+    transform: translate(-50%, -50%); /* centreringsjustering omkring punktet */
+    z-index: 1;           /* oven på baggrunden */
+    cursor: grab;
+    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+
+}
+
+#bigred {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 200px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 32rem;             /* hvor langt ned på siden */
+    left: 70rem;            /* hvor langt til højre */
+    transform: translate(-50%, -50%); /* centreringsjustering omkring punktet */
+    z-index: 1;           /* oven på baggrunden */
+    cursor: grab;
+    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+
+}
+
+#weightBR {
+    display: none;
+  }
+
+#weightBR {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 350px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 27.5rem;             /* hvor langt ned på siden */
+    left: 51.7rem;            /* hvor langt til højre */
+    transform: translate(-50%, -50%); /* centreringsjustering omkring punktet */
+    z-index: 1;           /* oven på baggrunden */
+}
+
+#weightLR {
+    display: none;
+  }
+
+#weightLR {
+    position: absolute;   /* gør det muligt at placere billedet præcist */
+    width: 300px;         /* juster størrelsen */
+    height: auto;         /* bevarer proportioner */
+    top: 26.8rem;             /* hvor langt ned på siden */
+    left: 50.5rem;            /* hvor langt til højre */
+    transform: translate(-50%, -50%); /* centreringsjustering omkring punktet */
+    z-index: 1;           /* oven på baggrunden */
+}
+
+
+
+
+
+
+
+

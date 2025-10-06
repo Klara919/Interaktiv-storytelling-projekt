@@ -45,3 +45,25 @@
         z-index: 1;
     }
 
+.overlay h2 {
+    font-family: 'Future Earth', sans-serif;
+    color: white;
+    text-align: left;
+    padding-left: 75px;
+    margin-top: 75px;
+    font-size: 25px;
+}
+
+.overlay p {
+    font-family: 'Exo 2', sans-serif;
+    color: white;    
+    text-align: left;
+    font-size: 20px;
+    margin-top: -10px;
+    margin-left: 60rem;
+
+    background-color: #C7C9D8; 
+    display: inline-block;  /* gør at baggrundsfarven kun er omkring teksten */
+    padding: 40px 20px;
+    border-radius: 10px;        /* afrundede hjørner (valgfrit) */
+}

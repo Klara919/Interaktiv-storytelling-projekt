@@ -1,0 +1,78 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+  /* Sikre at baggrunden er full screen  */
+  #background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ligger bag overlay */
+    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+}
+  
+  /* Overlay content container, ligger menu og logo henover video */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  
+.overlay h1 {
+    font-family: 'Audiowide', sans-serif;
+    color: white;
+    margin-top: 100px;
+    margin-left: 80px;
+    font-size: 100px;
+
+  }
+  
+.overlay p {
+    font-family: 'Exo 2', sans-serif;
+    color: white;
+    margin-top: 20px;
+    margin-left: 80px;
+    font-size: 30px;
+  }
+
+  #bowl{
+      position: absolute;
+      top: 30rem;
+      left: 38rem;
+      width: 15rem; /* justér størrelse efter behov */
+  }
+
+  .navigation-arrows {
+    position: fixed;   /* så de bliver nederst uanset scroll */
+    bottom: 20px;
+    display: flex;
+    right: 40px;
+
+    z-index: 10;
+  }
+  
+  .navigation-arrows img {
+    width: 100px;  /* størrelse på pilene */
+    height: auto;
+    cursor: pointer;
+  }

@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+  /* Sikre at baggrunden er full screen  */
+  #background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ligger bag overlay */
+    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+}
+  
+  /* Overlay content container, ligger menu og logo henover video */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  
+.overlay h1 {
+    font-family: future earth, sans-serif;
+    color: white;
+    margin-top: 100px;
+    margin-left: 80px;
+    font-size: 100px;
+
+  }
+
+  .overlay p{
+    font-family: exo 2 , sans-serif;
+    color: white;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 90px;
+}
+
+  
+#button-container {
+    margin-top: 300px; 
+    display: flex;
+    justify-content: center;
+    gap: 300px; /* afstand mellem knapperne */
+}
+
+#blueButton, #redButton {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #213768;
+    color: white;
+    padding: 30px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: 'Audiowide', sans-serif;
+    border: 4px solid #12D7E1;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    width: 250px;  /* ens bredde for alle knapper */
+    text-align: center; /* centrer teksten */
+}
+
+#blueButton:hover {
+    background-color: #12D7E1;
+    border-color: white; 
+}
+
+#redButton:hover {
+    background-color: red;
+    border-color: white; 
+}

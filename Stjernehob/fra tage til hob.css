@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  /* Sikre at baggrunden er full screen  */
+  #background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #background img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ligger bag overlay */
+    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+  }
+  
+  /* Overlay content container, ligger menu og logo henover video */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  .overlay h1 {
+    font-family: future earth , sans-serif;
+    color: white;
+    margin-left: 80px;
+    margin-top: 80px;
+    font-size: 120px;
+  }
+  
+  
+  .overlay p {
+    font-family: 'Exo 2', sans-serif;
+    color: white;  
+    font-size: 25px;
+    margin-left: 80px;
+    margin-top: 30px;
+  }
+
+#bowl {
+    position: absolute;
+    top: 400px;
+    left: 740px;
+    transform: translate(-50%, -50%);
+    width: 90rem; /* justér størrelse efter behov */
+    z-index: 1; /* lavere end knappen */
+}
+
+  
+  #button-container {
+    position: relative; /* skal være positioneret for at z-index virker */
+    z-index: 10;        /* højere end bowl og overlay */
+    margin-top: 400px; /* juster procenten til hvor langt ned du vil have den */
+    display: flex;
+    justify-content: center;
+  
+  }
+  
+  
+  #button-container a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #213768;
+    color: white;
+    padding: 20px 80px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: 'Audiowide', sans-serif;
+    border: 4px solid #12D7E1;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  
+  }
+  
+  #button-container a:hover {
+    background-color: #12D7E1;
+    border-color: white; 
+  }
+
+  #transitionVideo {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* VIGTIGT: fylder hele skærmen og beskærer hvis nødvendigt */
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 1s;
+}
