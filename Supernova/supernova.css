@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+#background {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #background img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* ligger bag overlay */
+    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay h1 {
+    font-family: future earth, sans-serif;
+    color: white;
+    margin-top: 50px;
+    margin-left: 60px;
+    font-size: 100px;
+
+  }
+ .overlay h2 {
+    font-family: exo 2 , sans-serif;
+    color: white;
+    font-size: 30px;
+    margin-top: 40px;
+    margin-left: 60px;
+ }
+
+  .overlay p{
+    font-family: exo 2 , sans-serif;
+    color: white;
+    font-size:20px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+#fakta-section {
+    position: absolute;
+    top: 20rem;  
+    left: 4rem;
+
+}
+
+
+
+/* Styles til selve dropdownen */
+details {
+    position: relative;
+    font-family: audiowide, sans-serif;
+    font-size: 1rem;
+    background-color: #FFD959;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-effekt */
+details:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Summary-styling */
+details summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Dropdown-ikon */
+summary::after {
+    content: "+";
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    color: #12D7E1;
+}
+
+/* Skift til minus når åbnet */
+details[open] summary::after {
+    content: "-";
+}
+
+/* Indholdsboks */
+details .content {
+    display: none; /* skjult som default */
+    position: relative; /* nu i forhold til details */
+    margin-top: 10px;
+    background-color: #FFD959;
+    padding-top: 15px;
+    padding-right: 4rem;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Når dropdown er åbent */
+details[open] .content {
+    display: block;
+    animation: slideDown 0.4s ease;
+}
+
+/* Blød slide-down animation */
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+details .content p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.navigation-arrows {
+    position: fixed;   /* så de bliver nederst uanset scroll */
+    bottom: 20px;
+    display: flex;
+    right: 40px;
+
+    z-index: 10;
+  }
+  
+  .navigation-arrows img {
+    width: 100px;  /* størrelse på pilene */
+    height: auto;
+    cursor: pointer;
+  }
