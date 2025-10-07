@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #bg-image, #bg-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+  }
+  
+  #bg-video {
+    display: none;
+  }
+  
+  .overlay {
+    position: relative;
+    z-index: 10;
+    text-align: left;
+    padding: 10vh;
+  }
+  
+  /* Tekster */
+  h1 {
+    font-family: future earth, sans-serif;
+    font-size: 16vh;
+  }
+  
+  h2 {
+    font-family: exo 2, sans-serif;
+    font-size: 2rem;
+    margin-top: 3vh;
+  }
+  
+  p {
+    font-family: exo 2, sans-serif;
+    font-size: 1.2rem;
+    margin-top: 3vh;
+  }
+  
+  /*  Knap centreret i midten */
+  #play-btn {
+    position: absolute;
+    top: 85vh;
+    left: 85vh;
+    transform: translate(-50%, -50%);
+    background-color: #213768;
+    color: white;
+    padding: 2.5vh 10vh;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 3vh;
+    border: 0.5vh solid #12D7E1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    animation: buttonGlow 2s infinite alternate;
+  }
+  
+  #play-btn:hover {
+    background-color: #12D7E1;
+    border-color: white;
+  }
+  
+  /* Hurtig fade væk ved klik */
+  #play-btn.fade-out {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  /* Fakta-boks mindre og placeret lige under teksten */
+  #fakta-section {
+    margin-top: 2vh;
+    width: 48vh;
+  }
+  
+  details {
+    font-family: audiowide, sans-serif;
+    font-size: 0.9rem;
+    background-color: #FFD959;
+    border-radius: 10px;
+    padding: 0.3rem 0.8rem; /* lidt mindre polstring rundt om summary */
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  details:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+  
+  details summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  summary::after {
+    content: "+";
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    color: #12D7E1;
+  }
+  
+  details[open] summary::after {
+    content: "-";
+
+  }
+  
+  details .content {
+    display: none;
+    margin-top: 5px; /* før 10px */
+    background-color: #FFD959;
+    padding: 6px 0.8rem 8px 0.8rem; /* mindre padding inde i boksen */
+    border-radius: 8px;
+  }
+  
+  details[open] .content {
+    display: block;
+    animation: slideDown 0.4s ease;
+  }
+  
+  @keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  details .content p {
+    font-size: 13px;
+    line-height: 1.3; /* lidt tættere linjeafstand */
+    margin: 0; /* fjern ekstra margin */
+    color: black;
+  }
+  
+  .navigation-arrows {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    z-index: 10;
+  }
+  
+  .navigation-arrows img {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+  }
+  

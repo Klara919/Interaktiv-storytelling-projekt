@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
   
           // Transition to another page after fade
           setTimeout(() => {
-            window.location.href = "../Supernova/supernova.html"; // <-- Your target page
+            window.location.href = "../Supernova/Supernova2.html"; // <-- Your target page
           }, 800);
         }
       } else {
