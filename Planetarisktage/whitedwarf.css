@@ -1,0 +1,173 @@
+/* Nulstil margin, padding og gør box-sizing nemmere at arbejde med */
+* {
+    margin: 0;                  /* Fjerner alle standardmarginer */
+    padding: 0;                 /* Fjerner al standardpadding */
+    box-sizing: border-box;     /* Inkluderer padding og border i width/height */
+  }
+  
+  /* Baggrund container, fylder hele skærmen */
+  #Background {
+    position: relative;         /* Gør det muligt at placere elementer absolut inde i den */
+    height: 100vh;              /* Fylder hele højden af viewport */
+    overflow: hidden;           /* Skjuler alt, der går udenfor containeren */
+  }
+  
+  /* Videoen, som ligger bag overlay */
+  #bg-video {
+    position: absolute;         /* Absolut placering i forhold til #Background */
+    top: 50%;                   /* Center lodret */
+    left: 50%;                  /* Center vandret */
+    min-width: 100%;            /* Minimum bredde fylder hele containeren */
+    min-height: 100%;           /* Minimum højde fylder hele containeren */
+    width: auto;                /* Automatisk bredde for at bevare proportioner */
+    height: auto;               /* Automatisk højde for at bevare proportioner */
+    transform: translate(-50%, -50%); /* Flytter videoen tilbage til perfekt center */
+    z-index: -1;                /* Ligger bag overlay/tekst */
+    object-fit: cover;          /* Fylder containeren uden at deformere videoen */
+  }
+  
+  /* Overlay container til tekst, knapper osv. */
+  .overlay {
+    position: absolute;         /* Ligger ovenpå video */
+    z-index: 1;                 /* Sørger for overlay ligger foran video */
+    width: 100%;                /* Fylder hele bredden */
+    height: 100%;               /* Fylder hele højden */
+  }
+  
+
+  
+  /* Overskrift H1 */
+  h1 {
+    font-family: future earth, sans-serif;   /* Specifik skrifttype */
+    color: white;                            /* Hvid tekstfarve */
+   margin-top: 10vh;                    /* Afstand fra toppen */
+    margin-left: 10vh;                   /* Afstand fra venstre */  
+    font-size: 100px;                         /* Stor titel */
+
+  }
+  
+  h2 {
+    font-family: exo 2, sans-serif; /* Specifik skrifttype */
+    color: white;                   /* Hvid tekstfarve */
+    margin-top: 5vh;                /* Afstand til h1 */
+    margin-left: 10vh;              /* Afstand fra venstre */
+    font-size: 24px;                /* Størrelse på h2 */
+  }
+
+p {
+    font-family: exo 2, sans-serif; /* Specifik skrifttype */
+    color: white;                   /* Hvid tekstfarve */
+    margin-top: 5vh;                /* Afstand til h1 */
+    margin-left: 10vh;              /* Afstand fra venstre */
+    font-size: 20px;                /* Størrelse på h2 */
+  }
+ 
+
+  /* Container til knap */
+#button-container {
+    margin-top: 30vh;          /* Afstand fra toppen af overlay */
+    margin-left:  60vw;
+    display: flex;              /* Brug flexbox for nem centrering */
+
+  }
+
+  /* Knappen inde i button-container */
+#button-container a {
+    display: inline-block;                   /* Blokerer som inline-block */
+    text-decoration: none;                   /* Fjern understregning */
+    background-color: #213768;               /* Baggrundsfarve */
+    color: white;                            /* Tekstfarve */
+    padding: 4vh 6vw;                     /* Indvendig afstand */
+    border-radius: 5vh;                      /* Runde hjørner */
+    cursor: pointer;                         /* Pointer på hover */
+    font-family: 'Audiowide', sans-serif;   /* Font til knappen */
+    border: 0.5vh solid #12D7E1;              /* Blå kant */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth hover */
+  }
+  
+  /* Knap hover-effekt */
+  #button-container a:hover {
+    background-color: #12D7E1;               /* Skifter farve på hover */
+    border-color: white;                     /* Skifter kantfarve */
+  }
+  
+
+
+/* Fakta-boks mindre og placeret lige under teksten */
+#fakta-section {
+    margin-top: -40vh;   /* Afstand fra p til boksen */
+    width: 20vh;       /* Bredde på boksen */
+    margin-left: 10vh;
+}
+
+details {
+    font-family: audiowide, sans-serif;
+    font-size: 0.9rem;
+    background-color: #FFD959;  /* Gul baggrund */
+    border-radius: 1vh;
+    padding: 0.14vh 1.2vh;     /* Indvendig afstand */
+    cursor: pointer;            /* Pointer når man holder musen over */
+    box-shadow: 0 0.4vh 1.2vh rgba(0,0,0,0.3); /* Blød skygge */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Blød hover-effekt */
+}
+
+details:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Større skygge på hover */
+}
+
+details summary {
+    list-style: none;            /* Fjern standard punkttegn */
+    display: flex;               
+    justify-content: space-between; /* Placer elementer yderst */
+    align-items: center; 
+}
+
+summary::after {
+    content: "+";               /* Symbol når boksen er lukket */
+    font-size: 1.2rem;
+    margin-left: 1.4vh;
+    color: #12D7E1;
+}
+
+details[open] summary::after {
+    content: "-";               /* Symbol når boksen er åben */
+}
+
+details .content {
+    display: none;              /* Skjult som standard */
+    margin-top: 0.6vh;            /* Afstand fra summary */
+    background-color: #FFD959;
+    padding: 0.6vh 0.8vh 0.8vh 0.8vh; /* Indvendig padding inde i boksen i vh */
+    border-radius: 8px;
+}
+
+details[open] .content {
+    display: block;             /* Vis når boksen er åbnet */
+    animation: slideDown 0.4s ease; /* Blød glide-animation */
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-10px); }  /* Starter lidt oppe og usynlig */
+    100% { opacity: 1; transform: translateY(0); }    /* Ender på plads og synlig */
+}
+
+details .content p {
+    font-size: 13px;
+    line-height: 1.3; /* Tættere linjeafstand */
+    margin: 0;        /* Fjern standard margin */
+    color: black;     /* Tekstfarve inde i fakta-boksen */
+}
+
+#transitionVideo {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* VIGTIGT: fylder hele skærmen og beskærer hvis nødvendigt */
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 1s;
+}

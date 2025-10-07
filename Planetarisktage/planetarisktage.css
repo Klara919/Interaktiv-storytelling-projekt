@@ -83,3 +83,16 @@
     border-color: white;                     /* Skifter kantfarve */
   }
   
+
+  #transitionVideo {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* VIGTIGT: fylder hele skærmen og beskærer hvis nødvendigt */
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 1s;
+}
