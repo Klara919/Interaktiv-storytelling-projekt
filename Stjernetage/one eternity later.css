@@ -1,46 +1,51 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* Nulstil standard margin, padding og box-sizing */
+   * {
+    margin: 0;                  /* Fjerner browserens standardmargin */
+    padding: 0;                 /* Fjerner browserens standardpadding */
+    box-sizing: border-box;     /* Padding og border inkluderes i elementets samlede størrelse */
+}
 
+/* Baggrund container fylder hele skærmen */
 #background {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  #background img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1; /* ligger bag overlay */
-    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+    position: relative;         /* Absolutte børn (som img/video) placeres i forhold til denne container */
+    height: 100vh;              /* Fylder hele viewport-højden */
+    overflow: hidden;           /* Skjuler alt der går udenfor container */
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-
-    /* Gør overlay til flex-container for centrering */
-    display: flex;
-    align-items: center;   /* lodret centreret */
-    justify-content: center; /* horisontalt centreret */
+/* Baggrundsbillede */
+#background img {
+    position: absolute;         /* Absolut placering */
+    top: 50%;                   /* Center lodret i container */
+    left: 50%;                  /* Center horisontalt i container */
+    min-width: 100vw;           /* Mindste bredde fylder hele viewport */
+    min-height: 100vh;          /* Mindste højde fylder hele viewport */
+    width: auto;                
+    height: auto;               
+    transform: translate(-50%, -50%); /* Centrerer billedet perfekt */
+    z-index: -1;                /* Ligger bag overlay/tekst */
+    object-fit: cover;          /* Fylder hele container uden deformation */
 }
 
+/* Overlay container (tekst, knapper m.m.) */
+.overlay { 
+    position: absolute;         /* Dette betyder, at overlayet ligger over baggrundselementet (som ofte er et billede eller video), men stadig kan placeres præcist med top, left, osv.*/
+    top: 0;                     /* Starter fra toppen af container */
+    left: 0;                    /* Starter fra venstre kant */
+    z-index: 1;                 /* Kombinationen med z-index: 1; sikrer, at overlayet ligger ovenpå baggrundsbilledet, men under eventuelle elementer med højere z-index.*/
+    width: 100vw;               /* Fylder hele viewport-bredden */
+    height: 100vh;              /* Fylder hele viewport-højden */
+
+    /* Gør overlay til flex-container for centrering af indhold */
+    display: flex;              
+    align-items: center;        /* Lodret centreret */
+    justify-content: center;    /* Horisontalt centreret */
+}
+
+/* Element #ur (ur-billede)*/
 #ur {
-    position: absolute;   /* gør det muligt at placere billedet præcist */
-    width: 80px;         /* juster størrelsen */
-    top: 32rem;             /* hvor langt ned på siden */
-    left: 45rem;            /* hvor langt til højre */
-    transform: translate(-50%, -50%); /* centreringsjustering omkring punktet */
+    position: absolute;         /* Absolut placering */
+    width: 10vh;                /* Bredde skaleret med viewport-højde */
+    top: 60vh;                  /* Afstand fra toppen af overlay */
+    left: 45vw;                 /* Afstand fra venstre kant af overlay */
+    transform: translate(-50%, -50%); /* Centrer element omkring punktet */
 }

@@ -1,69 +1,78 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  
-  /* Sikre at baggrunden er full screen  */
-  #background {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  #background img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1; /* ligger bag overlay */
-    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+/* =========================================
+   Nulstil standard margin, padding og box-sizing
+   ========================================= */
+   * {
+    margin: 0;                  /* Fjerner standardmargin */
+    padding: 0;                 /* Fjerner standardpadding */
+    box-sizing: border-box;     /* Padding og border inkluderes i elementets samlede bredde/højde */
 }
 
-   
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-    }
+/* =========================================
+   Baggrund container fylder hele skærmen
+   ========================================= */
+#background {
+    position: relative;         /* Absolutte børn (som img/video) placeres i forhold til denne container */
+    height: 100vh;              /* Fylder hele viewport-højden */
+    overflow: hidden;           /* Skjuler alt der går udenfor container */
+}
 
-    #bowlmedhviskestykke {
-        position: absolute;
-        top: 14rem;
-        left: 12rem;
-        width: 50rem; /* justér størrelse efter behov */
-        height: auto;
-        cursor: grab;
-        z-index: 1;
-    }
+/* =========================================
+   Baggrundsbillede
+   ========================================= */
+#background img {
+    position: absolute;         /* Absolut placering */
+    top: 50%;                   /* Center lodret i container */
+    left: 50%;                  /* Center horisontalt i container */
+    min-width: 100vw;           /* Mindste bredde fylder hele viewport */
+    min-height: 100vh;          /* Mindste højde fylder hele viewport */
+    width: auto;                
+    height: auto;               
+    transform: translate(-50%, -50%); /* Centrerer billedet perfekt */
+    z-index: -1;                /* Ligger bag overlay/tekst */
+    object-fit: cover;          /* Fylder hele container uden deformation */
+}
 
+/*  Overlay container (tekst, billede.) */
+.overlay {
+    position: absolute;         /* Absolut placeret oven på baggrund */
+    top: 0;                     /* Starter fra toppen af container */
+    left: 0;                    /* Starter fra venstre kant */
+    z-index: 1;                 /* Sørger for at overlay ligger foran baggrunden */
+    width: 100vw;               /* Fylder hele viewport-bredden */
+    height: 100vh;              /* Fylder hele viewport-højden */
+}
+
+/* Bowl med viskestykke */
+#bowlmedhviskestykke {
+    position: absolute;         /* Absolut placering */
+    top: 28vh;                  /* Afstand fra toppen af overlay */
+    left: 20vw;                 /* Afstand fra venstre kant af overlay */
+    width: 90vh;                /* Bredde skaleret med viewport-højde */
+    height: auto;               /* Bevarer proportioner */
+    cursor: grab;               /* Hånd-ikon ved hover */
+    z-index: 1;                 /* Ligger ovenpå baggrund */
+}
+
+/* Overskrift h2 i overlay */
 .overlay h2 {
-    font-family: 'Future Earth', sans-serif;
-    color: white;
-    text-align: left;
-    padding-left: 75px;
-    margin-top: 75px;
-    font-size: 25px;
+    font-family: 'Future Earth', sans-serif; /* Font */
+    color: white;                           /* Tekstfarve */
+    text-align: left;                        /* Venstrestillet */
+    padding-left: 9vh;                     /* Indvendig venstre padding */
+    margin-top: 9vh;                       /* Afstand fra toppen */
+    font-size: 25px;                          /* Font size beholdes i px */
 }
 
+/* Paragraph p i overlay*/
 .overlay p {
-    font-family: 'Exo 2', sans-serif;
-    color: white;    
-    text-align: left;
-    font-size: 20px;
-    margin-top: -10px;
-    margin-left: 60rem;
-
-    background-color: #C7C9D8; 
-    display: inline-block;  /* gør at baggrundsfarven kun er omkring teksten */
-    padding: 40px 20px;
-    border-radius: 10px;        /* afrundede hjørner (valgfrit) */
+    font-family: 'Exo 2', sans-serif;       /* Font */
+    color: white;                            /* Tekstfarve */
+    text-align: left;                        /* Venstrestillet */
+    font-size: 20px;                         /* Font size beholdes i px */
+    margin-top: -1vh;                        /* Lidt overlap med overskrift */
+    margin-left: 65vw;                       /* Flyttet til højre i forhold til overlay */
+    background-color: #C7C9D8;              /* Baggrundsfarve på boksen */
+    display: inline-block;                   /* Baggrund kun bag teksten */
+    padding: 4vh 2vh;                        /* Indvendig padding i vh */
+    border-radius: 1vh;                      /* Afrundede hjørner */
 }

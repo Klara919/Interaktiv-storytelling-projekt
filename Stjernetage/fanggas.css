@@ -1,100 +1,101 @@
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-image: url('images/stjernehimmel.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* Body og baggrund */
+   body {
+    margin: 0;                  /* Fjerner browserens standardmargin */
+    padding: 0;                 /* Fjerner browserens standardpadding */
+    overflow: hidden;           /* Skjuler scrollbars */
+    background-image: url('images/stjernehimmel.png'); /* Baggrundsbillede */
+    background-size: cover;     /* Fylder hele skærmen uden at deformere */
+    background-position: center; /* Centrerer billedet */
+    background-repeat: no-repeat; /* Undgår gentagelse */
 }
-/* Baggrundsbillede fylder hele skærmen */
+
+/* Baggrund container fylder hele skærmen */
 #background {
-    position: fixed;
+    position: fixed;            /* Holder baggrunden fast i viewport */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: 0;
+    width: 100vw;               /* Fylder hele viewport-bredden */
+    height: 100vh;              /* Fylder hele viewport-højden */
+    object-fit: cover;          /* Fylder container uden at deformere */
+    z-index: 0;                 /* Ligger bag alt andet indhold */
 }
 
 /* Game container ovenpå baggrund */
 #gameContainer {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-  
-  /* Overlay content container, ligger menu og logo henover video */
-  .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    color: white;
+    position: relative;         /* Absolut placerede børn placeres i forhold til denne */
+    width: 100vw;               /* Fylder hele bredden af viewport */
+    height: 100vh;              /* Fylder hele højden af viewport */
+    overflow: hidden;           /* Skjuler alt der går udenfor container */
 }
 
+/*Overlay container til tekst/knap */
+.overlay {
+    position: absolute;         /* Ligger ovenpå baggrund */
+    width: 100vw;               /* Fylder hele bredden */
+    height: 100vh;              /* Fylder hele højden */
+    z-index: 1;                 /* Sørger for overlay ligger foran baggrund */
+    color: white;               /* Standard tekstfarve */
+}
+
+/* Overskrift H1 */
 h1 {
-    font-family: 'Future Earth', sans-serif;
-    color: white;
-    text-align: left;
-    padding-left: 40px;
-    margin-top: 50px;
-    font-size: 100px;
+    font-family: 'Future Earth', sans-serif; /* Specifik font */
+    color: white;                            /* Hvid tekst */
+    text-align: left;                        /* Venstrestillet tekst */
+    padding-left: 4vh;                       /* Afstand fra venstre kant */
+    margin-top: 5vh;                         /* Afstand fra toppen af overlay */
+    font-size: 100px;                        /* Beholder font-size i px som ønsket */
 }
 
+/* Paragraf */
 p {
-    font-family: 'Exo 2', sans-serif;
-    color: white;   
-    text-align: left;
-    font-size: 25px;
-    padding-left: 40px;
-    margin-top: -20px;
-
+    font-family: 'Exo 2', sans-serif;       /* Specifik font */
+    color: white;                            /* Hvid tekst */
+    text-align: left;                        /* Venstrestillet tekst */
+    font-size: 25px;                         /* Beholder font-size i px */
+    padding-left: 4vh;                       /* Afstand fra venstre kant */
+    margin-top: -2vh;                        /* Negativ margin til at reducere afstand fra h1 */
 }
 
-
-/* Bowl */
+/*Bowl */
 #bowl {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    width: 120px;
-    transform: translateX(-50%);
-    z-index: 2;
+    position: absolute;         /* Absolut i forhold til gameContainer */
+    bottom: 2vh;                /* Afstand fra bunden */
+    left: 50vw;                 /* Midt på skærmen */
+    width: 12vh;                /* Bredde skaleret med viewport-højde */
+    transform: translateX(-50%); /* Centrerer bowl */
+    z-index: 2;                 /* Ligger foran baggrund men bag overlay-elementer om nødvendigt */
 }
 
-/* Gas kugler */
+/*Gas kugler*/
 .gas {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: rgba(0,255,255,0.7);
-    box-shadow: 0 0 10px rgba(0,255,255,0.5);
-    pointer-events: none;
+    position: absolute;         
+    width: 2vh;                 /* Diameter skaleret med viewport-højde */
+    height: 2vh;                
+    border-radius: 50%;         /* Gør kugler runde */
+    background: rgba(0,255,255,0.7); /* Cyan farve med gennemsigtighed */
+    box-shadow: 0 0 1vh rgba(0,255,255,0.5); /* Blød glow-effekt */
+    pointer-events: none;       /* Kan ikke klikkes på */
 }
 
+/* Gas animation*/
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(3px); }
-    100% { transform: translateY(0px); }
+    0% { transform: translateY(0vh); }      /* Starter position */
+    50% { transform: translateY(0.3vh); }   /* Bevægelse op/ned */
+    100% { transform: translateY(0vh); }    /* Tilbage til start */
 }
 
 /* Score og besked */
 #score {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    font-size: 40px;
+    position: absolute;         
+    top: 6vh;                    /* Afstand fra toppen */
+    right: 2vh;                  /* Afstand fra højre */
+    font-size: 40px;             /* Beholder px for font-size */
 }
-
-
 
 /* Pop-animation */
 .pop {
-    animation: pop 0.3s forwards;
+    animation: pop 0.3s forwards;  /* Anvender pop animation */
 }
 
 @keyframes pop {
@@ -102,46 +103,47 @@ p {
     100% { transform: scale(2); opacity: 0; }
 }
 
-
+/* Knap-container*/
 #button-container {
     position: absolute;
-    top: 500px; /* juster procenten til hvor langt ned du vil have den */
-    left: 750px;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-    display: none;
+    top: 60vh;                   /* Afstand fra toppen */
+    left: 50vw;                  /* Afstand fra venstre */
+    transform: translate(-50%, -50%); /* Centrerer container */
+    font-size: 12px;             /* Font-size i px */
+    display: none;               /* Starter skjult */
 }
 
-  
-  @keyframes buttonGlow {
+/* Button glow animation */
+@keyframes buttonGlow {
     0% {
-      box-shadow: 0 0 10px #12D7E1, 0 0 20px #12D7E1;
+      box-shadow: 0 0 1vh #12D7E1, 0 0 2vh #12D7E1;
     }
     50% {
-      box-shadow: 0 0 20px #12D7E1, 0 0 40px #12D7E1;
+      box-shadow: 0 0 2vh #12D7E1, 0 0 4vh #12D7E1;
     }
     100% {
-      box-shadow: 0 0 10px #12D7E1, 0 0 20px #12D7E1;
+      box-shadow: 0 0 1vh #12D7E1, 0 0 2vh #12D7E1;
     }
-  }
-  
+}
 
-  
-  #button-container a {
-    display: inline-block;
-    text-decoration: none;
-    background-color: #213768;
-    color: white;
-    padding: 20px 80px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-family: 'Audiowide', sans-serif;
-    border: 4px solid #12D7E1;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    animation: buttonGlow 2s infinite alternate;
-  }
+/* Knap styling */
+#button-container a {
+  display: inline-block;                  /* Gør linket til et “bloklignende” element så vi kan give det bredde, højde og padding */
+  text-decoration: none;                  /* Fjerner standard-understregning fra links */
+  background-color: #213768;              /* Mørk blå baggrundsfarve på knappen */
+  color: white;                           /* Hvid tekstfarve */
+  padding: 2vh 8vh;                       /* Lodret og vandret polstring i vh-enheder så den skalerer med skærmhøjden */
+  border-radius: 4vh;                     /* Runde hjørner — jo højere vh, jo mere afrundet */
+  cursor: pointer;                        /* Skifter musemarkør til en hånd, så man kan se det er klikbart */
+  font-family: 'Audiowide', sans-serif;   /* Sætter en futuristisk font til knapteksten */
+  border: 0.4vh solid #12D7E1;            /* Lys blå kant rundt om knappen, skaleret med viewport */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Gør farveskift på hover jævnt */
+  animation: buttonGlow 2s infinite alternate; /* Tilføjer en glødende animation der pulserer kontinuerligt */
+}
 
+
+/* Hover-effekt på knap */
 #button-container a:hover {
-    background-color: #12D7E1;
-    border-color: white; 
+    background-color: #12D7E1;               
+    border-color: white;                     
 }

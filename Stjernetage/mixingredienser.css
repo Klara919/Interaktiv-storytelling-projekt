@@ -1,231 +1,233 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-#background {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  #background img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1; /* ligger bag overlay */
-    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+/* Nulstil standard margin, padding og box-sizing */
+   * {
+    margin: 0;                  /* Fjerner browserens standardmargin */
+    padding: 0;                 /* Fjerner browserens standardpadding */
+    box-sizing: border-box;     /* Inkluderer padding og border i elementets størrelse */
 }
 
+/* Baggrund container fylder hele skærmen*/
+#background {
+    position: relative;         /* Absolut placerede børn kan placeres i forhold til denne */
+    height: 100vh;              /* Fylder hele viewport-højden */
+    overflow: hidden;           /* Skjuler alt der går udenfor container */
+}
+
+/* Baggrundsbillede i container */
+#background img {
+    position: absolute;         
+    top: 50%;                   /* Center lodret */
+    left: 50%;                  /* Center vandret */
+    min-width: 100vw;           /* Minimum bredde fylder hele viewport */
+    min-height: 100vh;          /* Minimum højde fylder hele viewport */
+    width: auto;                
+    height: auto;               
+    transform: translate(-50%, -50%); /* Perfekt centreret */
+    z-index: -1;                /* Ligger bag overlay/tekst */
+    object-fit: cover;          /* Fylder container uden at deformere */
+}
+
+/* Overlay container til tekst/knap */
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
+    position: absolute;         
+    top: 0;                     
+    left: 0;                    
+    z-index: 1;                 /* Sørger for overlay ligger foran baggrund */
+    width: 100vw;               
+    height: 100vh;              
 
     /* Gør overlay til flex-container for centrering */
-    display: flex;
-    align-items: center;   /* lodret centreret */
-    justify-content: center; /* horisontalt centreret */
+    display: flex;              
+    align-items: center;        /* Lodret centreret */
+    justify-content: center;    /* Horisontalt centreret */
 }
 
+/* Bowl */
 #bowl {
-    position: absolute;   /* gør det muligt at placere billedet præcist */
-    width: 200px;         /* juster størrelsen */
-    height: auto;         /* bevarer proportioner */
-    top: 32rem;             /* hvor langt ned på siden */
-    left: 55rem;            /* hvor langt til højre */
-    transform: translate(-50%, -50%); /* centreringsjustering omkring punktet */
-    z-index: 1;           /* oven på baggrunden */
+    position: absolute;         /* Absolut placering */
+    width: 20vh;                /* Bredde skaleret med viewport-højde */
+    height: auto;               /* Bevarer proportioner */
+    top: 60vh;                  /* Afstand fra toppen */
+    left: 55vw;                 /* Afstand fra venstre */
+    transform: translate(-50%, -50%); /* Centrerer bowl */
+    z-index: 1;                 /* Ligger ovenpå baggrund */
 }
 
+/* Salt */
 #salt {
-    position: absolute;   /* gør det muligt at placere billedet præcist */
-    width: 40px;         /* juster størrelsen */
-    height: auto;         /* bevarer proportioner */
-    top: 30rem;             /* hvor langt ned på siden */
-    left: 28rem;            /* hvor langt til højre */
-    z-index: 1;           /* oven på baggrunden */
-    cursor: grab;
-    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
-
+    position: absolute;         
+    width: 4vh;                 /* Bredde skaleret med viewport-højde */
+    height: auto;               
+    top: 60vh;                  
+    left: 28vw;                 
+    z-index: 1;                 
+    cursor: grab;               /* Hånd-ikon ved hover */
+    transition: opacity 0.8s ease; /* Fade-effekt ved ændring */
 }
 
-#jern{
-    position: absolute;   /* gør det muligt at placere billedet præcist */
-    width: 250px;         /* juster størrelsen */
-    height: auto;         /* bevarer proportioner */
-    top: 31rem;             /* hvor langt ned på siden */
-    left: 73rem;            /* hvor langt til højre */
-    z-index: 1;           /* oven på baggrunden */
-    cursor: grab; /* ændrer cursor til hånd-ikon */
-    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+/* Jern */
+#jern {
+    position: absolute;         
+    width: 30vh;                
+    height: auto;               
+    top: 60vh;                  
+    right: 4vw;                 
+    z-index: 1;                 
+    cursor: grab;               
+    transition: opacity 0.8s ease; 
 }
 
+/* Gryde */
 #gryde {
-    position: absolute;   /* gør det muligt at placere billedet præcist */
-    width: 120px;         /* juster størrelsen */
-    height: auto;         /* bevarer proportioner */
-    top: 32rem;             /* hvor langt ned på siden */
-    left: 65rem;            /* hvor langt til højre */
-    z-index: 1;           /* oven på baggrunden */
-    cursor: grab; /* ændrer cursor til hånd-ikon */
-    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+    position: absolute;         
+    width: 15vh;                
+    height: auto;               
+    top: 61vh;                  
+    right: 21vw;                 
+    z-index: 1;                 
+    cursor: grab;               
+    transition: opacity 0.8s ease;
 }
 
+/* Brint */
 #brint {
-    position: absolute;   /* gør det muligt at placere billedet præcist */
-    width: 100px;         /* juster størrelsen */
-    height: auto;         /* bevarer proportioner */
-    top: 26rem;             /* hvor langt ned på siden */
-    left: 65rem;            /* hvor langt til højre */
-    z-index: 1;           /* oven på baggrunden */
-    cursor: grab; /* ændrer cursor til hånd-ikon */
-    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+    position: absolute;         
+    width: 14vh;                
+    height: auto;               
+    top: 45vh;                  
+    right: 21vw;                 
+    z-index: 1;                 
+    cursor: grab;               
+    transition: opacity 0.8s ease; 
 }
 
-
+/* Kulstof */
 #kulstof {
-    position: absolute;   /* gør det muligt at placere billedet præcist */
-    width: 50px;         /* juster størrelsen */
-    height: auto;         /* bevarer proportioner */
-    top: 30rem;             /* hvor langt ned på siden */
-    left: 38rem;            /* hvor langt til højre */
-    z-index: 1;           /* oven på baggrunden */
-    cursor: grab; /* ændrer cursor til hånd-ikon */
-    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+    position: absolute;         
+    width: 5vh;                 
+    height: auto;               
+    top: 60vh;                  
+    left: 38vw;                 
+    z-index: 1;                 
+    cursor: grab;               
+    transition: opacity 0.8s ease;
 }
 
+/* Helium */
 #helium {
-    position: absolute;   /* gør det muligt at placere billedet præcist */
-    width: 100px;         /* juster størrelsen */
-    height: auto;         /* bevarer proportioner */
-    top: 2rem;             /* hvor langt ned på siden */
-    left: 80rem;            /* hvor langt til højre */
-    z-index: 1;           /* oven på baggrunden */
-    cursor: grab; /* ændrer cursor til hånd-ikon */
-    transition: opacity 0.8s ease; /* 0.8 sekunder fade-out */
+    position: absolute;         /* Elementet kan placeres præcist i forhold til nærmeste positionerede forælder (overlay)*/
+    width: 14vh;                /* Bredde skaleret med 14% af viewport-højden */
+    height: auto;               /* Højden justeres automatisk for at bevare proportioner */
+    top: 3vh;                   /* Afstand fra toppen af container = 3% af viewport-højde */
+    right: 5vw;                 /* Afstand fra højre kant = 5% af viewport-bredde */
+    z-index: 1;                 /* Sørger for at elementet ligger over baggrund men under højere z-index elementer */
+    cursor: grab;               /* Musemarkør ændres til hånd-ikon for draggable element */
+    transition: opacity 0.8s ease; /* Smooth fade-effekt, hvis elementets opacity ændres */
 }
 
 
-.center-wrapper {
-    display: flex;
-    justify-content: center;
-  }
 
-
+/* Dropdown styling */
 details {
-    position: relative; /* Sørger for, at elementet ikke påvirker andre */
+    position: relative;         /* Sørger for, at indhold kan positioneres relativt */
     font-family: audiowide, sans-serif;
-    font-size: 0.8rem;
-    background-color: #FFD959;
-    border-radius: 10px;
-    padding: 0.5rem;
-    cursor: pointer;
-    box-shadow: #FFD959 0px 0px 10px;
-    
+    font-size: 0.8rem;          /* Beholder font-size i rem */
+    background-color: #FFD959;  
+    border-radius: 1vh;         /* Afrundede hjørner */
+    padding: 0.5vh;             /* Indvendig afstand */
+    cursor: pointer;            
+    box-shadow: #FFD959 0 0 1vh; /* Skygge effekt */
 }
-details[open]{
+
+details[open] {
     border-bottom-left-radius: 0; 
     border-bottom-right-radius: 0;
-    width: 15.63rem;
+    width: 25vh;             /* Bredden skaleret med viewport */
 }
 
 details summary {
-    list-style: none; /* Fjerner standard pilen, hvis ønsket */
-    cursor: pointer; /* Gør det tydeligt, at det er klikbart */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    list-style: none;           /* Fjerner standard pile */
+    cursor: pointer;            
+    display: flex;              
+    justify-content: space-between; 
+    align-items: center;        
 }
-  
+
 details .content {
-    position: absolute; /* Sørger for, at indholdet åbner nedad */
-    top: 100%; /* Placerer indholdet lige under summary */
-    left: 0;
-    background-color: #FFD959; /* Ændrer baggrundsfarven til gul */
-    padding: 10px 20px; /* Giver mere indre afstand for bedre læsbarhed */
-    width: 250px; /* Angiver bredden på boksen */
-    height: auto; /* Sørger for, at højden tilpasser sig indholdet */
-    z-index: 10; /* Sørger for, at det vises over andre elementer */
-    border-radius: 10px; /* Tilføjer afrundede hjørner */
-    box-shadow: 0px 4px 10px #FFD959(0, 0, 0, 0.2); /* Tilføjer en skygge for bedre visuel effekt */
+    position: absolute;         
+    top: 100%;                  /* Placerer indholdet lige under summary */
+    left: 0;                    
+    background-color: #FFD959;  
+    padding: 1vh 2vh;           /* Indvendig padding */
+    width: 25vh;                 /* Bredden skaleret med viewport */
+    height: auto;               
+    z-index: 10;                
+    border-radius: 1vh;         
+    box-shadow: 0 0.4vh 1vh rgba(0,0,0,0.2); /* Skygge effekt */
 }
-
 
 details[open] .content {
-    display: block; /* Viser indholdet, når details er åbnet */
-    border-top-left-radius: 0; 
-    border-top-right-radius: 0;
+    display: block;             
+    border-top-left-radius: 0;  
+    border-top-right-radius: 0; 
 }
-  
+
 summary::after {
-    content: "+";
-    font-size: 1rem;
-    margin-left: 1rem;
-    color: #12D7E1;
-    
+    content: "+";               
+    font-size: 1rem;            
+    margin-left: 1vh;           
+    color: #12D7E1;             
 }
 
-/* Når dropdown er åben: skift til minus */
 details[open] summary::after {
-    content: "-";
-    
+    content: "-";               
 }
 
+/* Position af sektioner for elementer */
 #salt-section {
     position: absolute;
-    top: 35rem;  
-    left: 22rem;
-  }
-  
-  #jern-section {
+    top: 68vh;  
+    left: 20vw;
+}
+
+#jern-section {
     position: absolute;
-    top: 28rem;
-    right: 8rem;
+    top: 66vh;
+    right: 6vw;
     z-index: 1;
-  }
+}
 
 #brint-section {
     position: absolute;
-    top: 38rem;
-    left: 63rem;
+    top: 70vh;
+    left: 65vw;
 }
 
 #kulstof-section {
     position: absolute;
-    top: 26rem;  
-    left: 32rem;
-  }
-
-  #helium-section {
-    position: absolute;
-    top: 10rem;
-    right: 12rem;
-  }
-
-  .draggable {
-    position: absolute;
-    cursor: grab;
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+    top: 65vh;  
+    left: 35vw;
 }
 
+#helium-section {
+    position: absolute;
+    top: 10vh;
+    right: 15vw;
+}
 
-  video {
-    position: fixed; /* så den fylder hele skærmen */
+/* Draggable elementer */
+.draggable {
+    position: absolute;         
+    cursor: grab;               
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade/transform */
+}
+
+/* Video fylder hele skærmen */
+video {
+    position: fixed;            /* Ligger fast i viewport */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999; /* ligger over alt */
-    object-fit: cover;
-  }
+    width: 100vw;               
+    height: 100vh;              
+    z-index: 9999;              /* Ligger over alt */
+    object-fit: cover;          /* Fylder hele container uden deformation */
+}
