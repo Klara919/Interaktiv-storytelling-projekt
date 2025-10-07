@@ -3,6 +3,7 @@ const buttons = document.querySelectorAll('.keyboard button');
 const rightArrow = document.getElementById('rightArrow');
 const transitionVideo = document.getElementById('transitionVideo');
 
+// Tastatur funktionalitet
 buttons.forEach(button => {
   button.addEventListener('click', () => {
     const value = button.textContent;
@@ -17,8 +18,18 @@ buttons.forEach(button => {
   });
 });
 
+// Gem navnet og gå til næste side
 rightArrow.addEventListener('click', (e) => {
   e.preventDefault();
+
+  const navn = input.value.trim();
+  if (!navn) {
+    alert("Skriv venligst et navn til stjernen!");
+    return;
+  }
+
+  // Gem navnet i localStorage
+  localStorage.setItem('stjerneNavn', navn);
 
   // Fade ind video
   transitionVideo.style.display = 'block';
@@ -34,7 +45,7 @@ rightArrow.addEventListener('click', (e) => {
   setTimeout(() => {
     document.body.style.transition = "opacity 1s ease-out";
     document.body.style.opacity = 0;
-  }, 2000); // fx 2 sekunder efter klik
+  }, 2000);
 
   // Redirect når alt er faded
   setTimeout(() => {

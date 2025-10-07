@@ -1,0 +1,148 @@
+* {
+    margin: 0;                 /* Fjerner standardmargin på alle elementer */
+    padding: 0;                /* Fjerner standardpadding på alle elementer */
+    box-sizing: border-box;    /* Gør det nemmere at styre bredder og højder inkl. padding og border */
+}
+
+body, html {
+    width: 100%;               /* Sørger for at body og html fylder hele vinduet */
+    height: 100%;
+    font-family: "Poppins", sans-serif; /* Standard skrifttype */
+    color: white;              /* Standard tekstfarve */
+    overflow: hidden;          /* Skjuler scrollbars */
+}
+
+.hero {
+    position: relative;        /* Gør det muligt at placere elementer absolut inde i hero */
+    width: 100%;
+    height: 100vh;             /* Fylder hele højde af viewport */
+    overflow: hidden;          /* Skjuler alt, der går udenfor hero */
+}
+
+#bg-image, #bg-video {
+    position: absolute;        /* Lægger billedet/videoen bag teksten */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* Sørger for at billedet/video fylder hero uden at ændre proportioner */
+    top: 0;
+    left: 0;
+}
+
+#bg-video {
+    display: none;             /* Video starter skjult */
+}
+
+.overlay {
+    position: relative;        /* Bevarer flowet inde i hero */
+    z-index: 10;               /* Sikrer at teksten ligger over baggrund */
+    text-align: left;          /* Tekst venstrestillet */
+    padding: 10vh;             /* Indvendig afstand fra toppen og siderne */
+}
+
+/* Tekster */
+h1 {
+    font-family: future earth, sans-serif;  /* Specifik font til hovedtitel */
+    font-size: 16vh;                        /* Stor titel, afhængig af viewport-højde */
+}
+
+h2 {
+    font-family: exo 2, sans-serif;
+    font-size: 2rem;
+    margin-top: 3vh;         /* Afstand til h1 */
+}
+
+#advice {
+    font-family: exo 2, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 40vh;
+}
+
+/* Knap centreret i midten */
+#tryagian-btn {
+    position: absolute;       
+    top: 85vh;                /* Placering lodret (kan justeres) */
+    left: 88vh;               /* Placering vandret (kan justeres) */
+    transform: translate(-50%, -50%); /* Sørger for at knappen er centreret omkring punktet */
+    background-color: #213768; 
+    color: white;
+    padding: 2.5vh 10vh;      /* Indvendig afstand */
+    border-radius: 5vh;      /* Runde hjørner */
+    cursor: pointer;          
+    font-family: 'Audiowide', sans-serif;
+    font-size: 3vh;
+    border: 0.5vh solid #12D7E1; 
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Blød overgang ved fade-out */
+    animation: buttonGlow 2s infinite alternate; /* Glow-animation (skal defineres et andet sted) */
+}
+
+#tryagian-btn:hover {
+    background-color: #12D7E1; /* Hover farveændring */
+    border-color: white;
+}
+
+
+/* Fakta-boks mindre og placeret lige under teksten */
+#fakta-section {
+    margin-top: -40vh;   /* Afstand fra p til boksen */
+    width: 48vh;       /* Bredde på boksen */
+}
+
+details {
+    font-family: audiowide, sans-serif;
+    font-size: 0.9rem;
+    background-color: #FFD959;  /* Gul baggrund */
+    border-radius: 1vh;
+    padding: 0.14vh 1.2vh;     /* Indvendig afstand */
+    cursor: pointer;            /* Pointer når man holder musen over */
+    box-shadow: 0 0.4vh 1.2vh rgba(0,0,0,0.3); /* Blød skygge */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Blød hover-effekt */
+}
+
+details:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Større skygge på hover */
+}
+
+details summary {
+    list-style: none;            /* Fjern standard punkttegn */
+    display: flex;               
+    justify-content: space-between; /* Placer elementer yderst */
+    align-items: center; 
+}
+
+summary::after {
+    content: "+";               /* Symbol når boksen er lukket */
+    font-size: 1.2rem;
+    margin-left: 1.4vh;
+    color: #12D7E1;
+}
+
+details[open] summary::after {
+    content: "-";               /* Symbol når boksen er åben */
+}
+
+details .content {
+    display: none;              /* Skjult som standard */
+    margin-top: 0.6vh;            /* Afstand fra summary */
+    background-color: #FFD959;
+    padding: 0.6vh 0.8vh 0.8vh 0.8vh; /* Indvendig padding inde i boksen i vh */
+    border-radius: 8px;
+}
+
+details[open] .content {
+    display: block;             /* Vis når boksen er åbnet */
+    animation: slideDown 0.4s ease; /* Blød glide-animation */
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-10px); }  /* Starter lidt oppe og usynlig */
+    100% { opacity: 1; transform: translateY(0); }    /* Ender på plads og synlig */
+}
+
+details .content p {
+    font-size: 13px;
+    line-height: 1.3; /* Tættere linjeafstand */
+    margin: 0;        /* Fjern standard margin */
+    color: black;     /* Tekstfarve inde i fakta-boksen */
+}

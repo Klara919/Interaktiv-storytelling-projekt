@@ -1,37 +1,47 @@
+// Finder HTML-elementet med id "bowlmedhviskestykke" og gemmer det i variablen bowl
 const bowl = document.getElementById('bowlmedhviskestykke');
 
+// Lægger en "mousedown"-eventlistener på skålen, altså starter drag når musen trykkes ned
 bowl.addEventListener('mousedown', onMouseDown);
 
+// Funktionen der køres, når musen trykkes ned på skålen
 function onMouseDown(event) {
-    event.preventDefault();
+    event.preventDefault(); // Forhindrer standard browser-adfærd, fx markering af tekst
 
+    // Beregner forskellen mellem musens position og skålens top/venstre kant
     const shiftX = event.clientX - bowl.getBoundingClientRect().left;
     const shiftY = event.clientY - bowl.getBoundingClientRect().top;
 
+    // Sørger for at skålen er absolut placeret, så vi kan flytte den frit
     bowl.style.position = 'absolute';
-    bowl.style.zIndex = 1000;
+    bowl.style.zIndex = 1000; // Lægger den ovenpå alt andet, så den ikke går bag overlay
 
+    // Flytter skålen til den aktuelle mus-position med korrekt offset
     moveAt(event.pageX, event.pageY);
 
+    // Funktion der flytter skålen til en given position
     function moveAt(pageX, pageY) {
-        bowl.style.left = pageX - shiftX + 'px';
-        bowl.style.top = pageY - shiftY + 'px';
+        bowl.style.left = pageX - shiftX + 'px'; // Venstre kant = musens X minus forskel
+        bowl.style.top = pageY - shiftY + 'px';  // Top kant = musens Y minus forskel
     }
 
+    // Eventlistener på hele dokumentet, så skålen følger musen
     function onMouseMove(event) {
         moveAt(event.pageX, event.pageY);
     }
 
     document.addEventListener('mousemove', onMouseMove);
 
+    // Når musen slippes (mouseup), stopper drag
     bowl.onmouseup = function() {
-        document.removeEventListener('mousemove', onMouseMove);
-        bowl.onmouseup = null;
+        document.removeEventListener('mousemove', onMouseMove); // Fjern mousemove listener
+        bowl.onmouseup = null; // Fjern mouseup listener, så den ikke kører igen
 
-        // Tjek om midten af skålen er i venstre 1/10
+        // Tjek om midten af skålen er i venstre 1/10 af skærmen
         checkBowlPosition();
     };
 }
+
 
 // Forhindrer default browser-drag
 bowl.ondragstart = function() {
