@@ -1,16 +1,50 @@
-* {
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    overflow: hidden;
+    background-color: black;
+    color: white;
   }
 
-#background {
+  /* Startskærm */
+  #startScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  #startButton {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    background-color: #ffdd00;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    transition: transform 0.2s ease;
+  }
+
+  #startButton:hover {
+    transform: scale(1.1);
+  }
+
+  /* Video og overlay skjult indtil start */
+  #background {
+    visibility: hidden; /* skjul med visibility i stedet */
+    opacity: 0;
     position: relative;
     height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    transition: opacity 1s ease;
   }
 
-  #background img {
+  #bg-video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,55 +53,47 @@
     width: auto;
     height: auto;
     transform: translate(-50%, -50%);
-    z-index: -1; /* ligger bag overlay */
-    object-fit: cover; /* fylder hele baggrunden uden at deformere */
-}
+    object-fit: cover;
+    z-index: -1;
+  }
 
-.overlay {
+  .overlay {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
     width: 100%;
     height: 100%;
-}
-
-.overlay h1 {
-    font-family: future earth, sans-serif;
-    color: white;
-    margin-top: 50px;
-    margin-left: 60px;
-    font-size: 100px;
-
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 50px;
+    background: rgba(0,0,0,0.3);
   }
- .overlay h2 {
-    font-family: exo 2 , sans-serif;
+
+  .overlay h1 {
+    font-size: 80px;
     color: white;
+  }
+
+  .overlay h2 {
     font-size: 30px;
-    margin-top: 40px;
-    margin-left: 60px;
- }
-
-  .overlay p{
-    font-family: exo 2 , sans-serif;
     color: white;
-    font-size:20px;
     margin-top: 20px;
-    margin-left: 60px;
-}
+  }
 
-#fakta-section {
-    position: absolute;
-    top: 20rem;  
-    left: 4rem;
+  .overlay p {
+    font-size: 20px;
+    margin-top: 20px;
+  }
 
-}
+  #fakta-section {
+    margin-top: 30px;
+  }
 
-
-
-/* Styles til selve dropdownen */
-details {
-    position: relative;
+  /* Dropdown styling */
+  details {
     font-family: audiowide, sans-serif;
     font-size: 1rem;
     background-color: #FFD959;
@@ -76,78 +102,65 @@ details {
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  }
 
-/* Hover-effekt */
-details:hover {
+  details:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
+  }
 
-/* Summary-styling */
-details summary {
+  details summary {
     list-style: none;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
 
-/* Dropdown-ikon */
-summary::after {
+  summary::after {
     content: "+";
     font-size: 1.2rem;
     margin-left: 1rem;
     color: #12D7E1;
-}
+  }
 
-/* Skift til minus når åbnet */
-details[open] summary::after {
+  details[open] summary::after {
     content: "-";
-}
+  }
 
-/* Indholdsboks */
-details .content {
-    display: none; /* skjult som default */
-    position: relative; /* nu i forhold til details */
+  details .content {
+    display: none;
     margin-top: 10px;
     background-color: #FFD959;
-    padding-top: 15px;
-    padding-right: 4rem;
-    padding-bottom: 15px;
+    padding: 15px 2rem 15px 1rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
+  }
 
-/* Når dropdown er åbent */
-details[open] .content {
+  details[open] .content {
     display: block;
     animation: slideDown 0.4s ease;
-}
+  }
 
-/* Blød slide-down animation */
-@keyframes slideDown {
+  @keyframes slideDown {
     0% { opacity: 0; transform: translateY(-10px); }
     100% { opacity: 1; transform: translateY(0); }
-}
+  }
 
-
-details .content p {
+  details .content p {
     font-size: 14px;
     line-height: 1.4;
-}
+  }
 
-.navigation-arrows {
-    position: fixed;   /* så de bliver nederst uanset scroll */
+  .navigation-arrows {
+    position: fixed;
     bottom: 20px;
-    display: flex;
     right: 40px;
-
     z-index: 10;
   }
-  
+
   .navigation-arrows img {
-    width: 100px;  /* størrelse på pilene */
+    width: 100px;
     height: auto;
     cursor: pointer;
   }
