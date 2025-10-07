@@ -71,10 +71,12 @@ h2 {
     cursor: pointer;          
     font-family: 'Audiowide', sans-serif;
     font-size: 3vh;
+    text-decoration: none; /* Fjern understregning */
     border: 0.5vh solid #12D7E1; 
     transition: opacity 0.3s ease, transform 0.3s ease; /* Blød overgang ved fade-out */
     animation: buttonGlow 2s infinite alternate; /* Glow-animation (skal defineres et andet sted) */
 }
+
 
 #tryagian-btn:hover {
     background-color: #12D7E1; /* Hover farveændring */
