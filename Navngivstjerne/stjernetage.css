@@ -1,3 +1,4 @@
+/* Fjerner standardmargener og sikrer konsistent dimensionering */
 * {
   margin: 0;
   padding: 0;
@@ -5,84 +6,98 @@
 }
 
 
-/* Sikre at baggrunden er full screen  */
+/* Baggrundsopsætning */
+
+/* Sektionen der indeholder baggrundsbilledet */
 #background {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
+  height: 100vh; /* Fylder hele skærmhøjden */
+  overflow: hidden; /* Skjuler alt der går udenfor området */
 }
 
+/* Selve baggrundsbilledet */
 #background img {
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 100%;
-  min-height: 100%;
+  min-width: 100vw;  /* Fyld hele bredden på viewport */
+  min-height: 100vh; /* Fyld hele højden på viewport */
   width: auto;
   height: auto;
-  transform: translate(-50%, -50%);
-  z-index: -1; /* ligger bag overlay */
-  object-fit: cover; /* fylder hele baggrunden uden at deformere */
+  transform: translate(-50%, -50%); /* Centrer billedet præcist */
+  z-index: -1; /* Ligger bag alt indhold */
+  object-fit: cover; /* Fylder hele området uden at strække */
 }
 
-/* Overlay content container, ligger menu og logo henover video */
+
+/* Overlay (forsideindhold) */
+
+/* Container til alt indhold ovenpå baggrunden */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
+  z-index: 1; /* Sørger for at teksten er over billedet */
+  width: 100vw;
+  height: 100vh;
 }
 
 
+/* Overskrift (H1) */
 .overlay h1 {
-  font-family: future earth , sans-serif;
+  font-family: "Future Earth", sans-serif; /* Sci-fi inspireret font */
   color: white;
   text-align: center;
-  margin-top: 100px;
-  font-size: 100px;
+  margin-top: 10vh; /* Afstand fra toppen */
+  font-size: 100px; 
 }
 
 
+/* Undertekst / Introduktion */
 .overlay p {
-  font-family: 'Exo 2', sans-serif;
-  color: #213768;  
+  font-family: "Exo 2", sans-serif;
+  color: #213768; /* Mørk blå tekst */
   text-align: center;
-  font-size: 30px;
-  margin-left: 220px;
-  margin-top: 100px;
-
+  font-size: 30px; 
   
-  background-color: #C7C9D8; 
-  display: inline-block;  /* gør at baggrundsfarven kun er omkring teksten */
-  padding: 40px 20px;
-  border-radius: 10px;        /* afrundede hjørner (valgfrit) */
+  /* Centreret placering */
+  margin-left: 15vw; /* Flyt lidt ind fra venstre */
+  margin-top: 15vh;  /* Afstand fra overskrift */
+  
+  /* Baggrundsboks bag teksten */
+  background-color: #C7C9D8; /* Lys grå baggrund */
+  display: inline-block; /* Baggrund dækker kun teksten */
+  padding: 5vh 3vw; /* Indvendig afstand (responsiv) */
+  border-radius: 2vh; /* Bløde hjørner */
 }
 
+
+/* Knapcontainer*/
+
+/* Wrapper omkring knappen */
 #button-container {
-  margin-top: 150px; /* juster procenten til hvor langt ned du vil have den */
+  margin-top: 15vh; /* Hvor langt ned fra teksten knappen er */
   display: flex;
-  justify-content: center;
-
+  justify-content: center; /* Centrer knappen vandret */
 }
 
 
+/* fortsætknap-styling*/
 #button-container a {
   display: inline-block;
-  text-decoration: none;
-  background-color: #213768;
+  text-decoration: none; /* Fjern understregning */
+  background-color: #213768; /* Blå baggrund */
   color: white;
-  padding: 40px 100px;
-  border-radius: 40px;
+  padding: 4vh 10vw; /* Gør knappen responsiv */
+  border-radius: 5vh; /* Afrundede hjørner */
   cursor: pointer;
-  font-family: 'Audiowide', sans-serif;
-  border: 4px solid #12D7E1;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-
+  font-family: "Audiowide", sans-serif;
+  border: 0.5vh solid #12D7E1; /* Lys blå kant */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Glidende hovereffekt */
 }
 
+/* Hovereffekt – gør knappen mere levende */
 #button-container a:hover {
-  background-color: #12D7E1;
-  border-color: white; 
+  background-color: #12D7E1; /* Lysere blå ved hover */
+  border-color: white; /* Skift kantfarve */
 }

@@ -49,3 +49,12 @@
     left: 45vw;                 /* Afstand fra venstre kant af overlay */
     transform: translate(-50%, -50%); /* Centrer element omkring punktet */
 }
+
+#press {
+    position: absolute;         /* Absolut placering */
+    width: 20vh;                /* Bredde skaleret med viewport-højde */
+    top: 60vh;                  /* Afstand fra toppen af overlay */
+    left: 49vw;                 /* Afstand fra venstre kant af overlay */
+    transform: translate(-50%, -50%); /* Centrer element omkring punktet */
+    color: white;
+}

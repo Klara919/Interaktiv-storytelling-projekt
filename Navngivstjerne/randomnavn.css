@@ -1,102 +1,125 @@
+/* Nulstil standardmargener og sikrer konsistent box-sizing */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  
-  /* Sikre at baggrunden er full screen  */
-  #background {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  #background img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1; /* ligger bag overlay */
-    object-fit: cover; /* fylder hele baggrunden uden at deformere */
-}
-  
-  /* Overlay content container, ligger menu og logo henover video */
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;    /* lodret stak */
-    justify-content: flex-start; /* placér elementer fra toppen */
-    align-items: center;       /* centrer horisontalt */
-    padding-top: 50px;        /* flytter h2 og p længere ned fra toppen */
-    text-align: center;
-}
-  .overlay h2 {
-    font-family: exo 2 , sans-serif;
-    color: white;
-    text-align: center;
-    font-size: 40px;
-    margin-top: 100px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-#navn {
-    font-size: 100px;             /* lidt større, så det skiller sig ud */
-    font-family: exo 2 , sans-serif;
-    color: white;              /* gylden farve, passer til stjerner */
-    text-align: center;          /* centreret */
-    margin: 100px 0;              /* afstand over og under */
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* gør teksten mere læsbar på baggrund */
+/* Baggrundscontainer – fylder hele skærmen */
+#background {
+  position: relative;
+  height: 100vh; /* 100% af viewport-højden */
+  overflow: hidden; /* Skjul alt der går ud over skærmen */
 }
 
-.overlay button {
-    padding: 15px 30px;          /* større knap */
-    font-size: 18px;             /* tydelig tekst */
-    font-family: audiowide, sans-serif;
-    border: none;                /* ingen kantlinje */
-    border-radius: 30px;         /* afrundede hjørner */
-    background-color: #213768;   /* flot blå farve */
-    color: white;                /* tekstfarve */
-    cursor: pointer;             /* pointer ved hover */
-    transition: all 0.3s ease;  /* glidende effekt */
-    border: 4px solid #12D7E1;
+/* Baggrundsbilledet – centreret og skaleret korrekt */
+#background img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100vw; /* fyld hele viewportens bredde */
+  min-height: 100vh; /* fyld hele viewportens højde */
+  transform: translate(-50%, -50%); /* centrerer billedet */
+  z-index: -1; /* lægger det bag alt andet */
+  object-fit: cover; /* bevar proportioner men dæk hele området */
 }
 
-button:hover {
-    background-color: #63B8FF;   /* lysere blå ved hover */
-    transform: scale(1.05);      /* lille zoom-effekt */
-}
-
-.navigation-arrows {
-  position: fixed;   /* så de bliver nederst uanset scroll */
-  bottom: 20px;
-  width: 100%;
+/* Overlay – alt indhold der vises ovenpå baggrunden */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw; /* fyld hele skærmens bredde */
+  height: 100vh; /* fyld hele skærmens højde */
   display: flex;
-  justify-content: space-between;  /* venstre og højre */
-  padding: 0 50px;   /* afstand fra kanterne */
-  z-index: 10;
+  flex-direction: column; /* elementer stables lodret */
+  justify-content: flex-start; /* start fra toppen */
+  align-items: center; /* centrer vandret */
+  padding-top: 5vh; /* afstand fra toppen */
+  text-align: center;
 }
 
+/* Overskrifter */
+.overlay h2 {
+  font-family: "Exo 2", sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 40px; 
+  margin-top: 10vh; /* afstand fra toppen */
+}
+
+/* Det genererede stjernenavn */
+#navn {
+  font-size: 100px; 
+  font-family: "Exo 2", sans-serif;
+  color: white;
+  text-align: center;
+  margin: 10vh 0; /* luft over og under teksten */
+  text-shadow: 0.3vh 0.3vh 0.5vh rgba(0,0,0,0.7); /* blød skygge for kontrast */
+}
+
+/* Generér-navn knap */
+#generateBtn {
+  padding: 2vh 4vw; 
+  font-size: 18px; 
+  font-family: "Audiowide", sans-serif;
+  border: none;
+  border-radius: 5vh; /* afrundede hjørner */
+  background-color: #213768;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 0.5vh solid #12D7E1; 
+}
+
+/* Hovereffekt på knappen */
+#generateBtn:hover {
+  background-color: #63B8FF;
+  transform: scale(1.05);
+}
+
+/* Højre pil – neutral styling uden baggrund */
+#rightArrow {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Pilebillede størrelse */
+#rightArrow img {
+  width: 8vw; /* responsiv størrelse */
+  height: auto;
+}
+
+/* Navigation-pil container nederst */
+.navigation-arrows {
+  position: fixed; /* altid synlig nederst */
+  bottom: 2vh; /* lidt afstand fra bunden */
+  width: 100vw; /* fyld hele bredden */
+  display: flex;
+  justify-content: space-between; /* en pil i hver side */
+  padding: 0 5vw; /* afstand fra kanterne */
+  z-index: 10; /* ovenpå baggrunden men under video */
+}
+
+/* Pile generelt */
 .navigation-arrows img {
-  width: 100px;  /* størrelse på pilene */
+  width: 8vw; /* gør pile responsive */
   height: auto;
   cursor: pointer;
 }
 
-video {
-  position: fixed; /* så den fylder hele skærmen */
+/* Video der bruges til fade/transition */
+#transitionVideo {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9999; /* ligger over alt */
-  object-fit: cover;
+  z-index: 9999; /* ligger øverst */
+  object-fit: cover; /* dæk hele skærmen uden at strække */
+  display: none; /* skjult som standard */
+  opacity: 0; /* starter usynlig */
+  pointer-events: none; /* gør at videoen ikke blokerer klik */
 }

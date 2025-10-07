@@ -1,113 +1,117 @@
+/* GLOBAL RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  
-  /* Sikre at baggrunden er full screen  */
-  #background {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  #background img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1; /* ligger bag overlay */
-    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+    margin: 0;           /* Fjern standardmargener på alle elementer */
+    padding: 0;          /* Fjern standardpadding på alle elementer */
+    box-sizing: border-box; /* Inkluder padding og border i elementets bredde/højde */
 }
-  
-  /* Overlay content container, ligger menu og logo henover video */
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-  }
 
-  .overlay h2 {
-    font-family: exo 2 , sans-serif;
+/* BAGGRUND*/
+#background {
+    position: relative;  /* Relativ positionering: bruges som reference for absolut placerede børn */
+    height: 100vh;       /* Fylder hele viewport-højden */
+    overflow: hidden;    /* Skjuler alt indhold der går udenfor containeren */
+}
+
+#background img {
+    position: absolute;  /* Absolut placeret i forhold til #background */
+    top: 50%;            /* Flytter toppen 50% ned fra containerens top */
+    left: 50%;           /* Flytter venstre kant 50% ind fra containerens venstre kant */
+    min-width: 100vw;    /* Mindst 100% af viewport-bredden */
+    min-height: 100vh;   /* Mindst 100% af viewport-højden */
+    width: auto;         /* Behold proportioner */
+    height: auto;        /* Behold proportioner */
+    transform: translate(-50%, -50%); /* Centrerer billedet præcist */
+    z-index: -1;         /* Ligger bag alt andet indhold */
+    object-fit: cover;   /* Fylder området uden at deformere billedet */
+}
+
+/* OVERLAY (INDHOLD)*/
+.overlay {
+    position: absolute;  /* Absolut placeret i forhold til nærmeste relative forælder (#background) */
+    top: 0;              /* Starter ved toppen af containeren */
+    left: 0;             /* Starter ved venstre kant */
+    z-index: 1;          /* Ligger ovenpå baggrundsbilledet */
+    width: 100vw;        /* Fylder hele viewport-bredden */
+    height: 100vh;       /* Fylder hele viewport-højden */
+}
+
+/* Overskrift H2 */
+.overlay h2 {
+    font-family: "Exo 2", sans-serif; /* Font til overskrift */
     color: white;
     text-align: center;
-    font-size: 40px;
-    margin-top: 100px;
+    font-size: 40px;     
+    margin-top: 10vh;    /* Afstand fra toppen */
 }
 
 
+/* STAR NAME INPUT */
 .star-name-container {
-    text-align: center;
-    margin-top: 100px;
-
+    text-align: center;  /* Centrer inputfeltet */
+    margin-top: 10vh;    /* Afstand fra H2 */
 }
 
 #starName {
-    font-size: 24px;
-    padding: 10px;
-    width: 300px;
+    font-size: 24px;     
+    padding: 1.5vh 2vw;  /* Indvendig afstand */
+    width: 30vw;         /* Bredde */
     text-align: center;
-    border-radius: 30px;
-    border: 4px solid #12D7E1;
-        outline: none; /* fjerner den blå kant på */
- }
+    border-radius: 3vh;  /* Afrundede hjørner */
+    border: 0.5vh solid #12D7E1; /* Lys blå kant */
+    outline: none;       /* Fjerner den blå kant ved fokus */
+}
 
-
+/* KEYBOARD BUTTONS */
 .keyboard {
-    margin-top: 150px;
+    margin-top: 15vh;    /* Afstand fra inputfelt */
 }
 
 .row {
-    margin-bottom: 10px;
+    margin-bottom: 1vh;  /* Lidt luft mellem rækker */
 }
 
 button {
-    font-size: 20px;
-    padding: 15px 20px;
-    margin: 3px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #213768;
+    font-size: 20px;           
+    padding: 1.5vh 2vw;        /* Responsiv padding */
+    margin: 0.3vh;             /* Lidt mellemrum mellem knapper */
+    border-radius: 2vh;        /* Afrundede hjørner */
+    cursor: pointer;           /* Pointer ved hover */
+    background-color: #213768; /* Blå baggrund */
     color: white;
-    border: 2px solid #12D7E1;
-    transition: background-color 0.3s ease;
+    border: 0.2vh solid #12D7E1; /* Lys blå kant */
+    transition: background-color 0.3s ease; /* Glidende effekt på hover */
 }
 
 button:hover {
-    background-color: #12D7E1;
-    color: #213768;
+    background-color: #12D7E1; /* Lysere blå */
+    color: #213768;            /* Skift tekstfarve */
 }
 
+/* NAVIGATION PILE*/
 .navigation-arrows {
-    position: fixed;   /* så de bliver nederst uanset scroll */
-    bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;  /* venstre og højre */
-    padding: 0 50px;   /* afstand fra kanterne */
-    z-index: 10;
+    position: fixed;     /* Holder pile fast nederst på skærmen, uafhængigt af scroll */
+    bottom: 2vh;         /* Afstand fra bunden af viewport */
+    width: 100vw;        /* Fylder hele bredden */
+    display: flex;       /* Flexbox for placering af pile */
+    justify-content: space-between; /* Venstre og højre pil */
+    padding: 0 5vw;      /* Afstand fra kanterne */
+    z-index: 10;         /* Ovenpå overlay-indhold */
 }
 
 .navigation-arrows img {
-    width: 100px;  /* størrelse på pilene */
+    width: 10vw;         
     height: auto;
     cursor: pointer;
 }
 
+
+/* TRANSITION VIDEO*/
 video {
-    position: fixed; /* så den fylder hele skærmen */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999; /* ligger over alt */
-    object-fit: cover;
+    position: fixed;     /* Fylder hele skærmen og følger med ved scroll */
+    top: 0;              /* Starter øverst */
+    left: 0;             /* Starter ved venstre kant */
+    width: 100vw;        /* Fylder hele viewport-bredden */
+    height: 100vh;       /* Fylder hele viewport-højden */
+    z-index: 9999;       /* Ligger over alt andet */
+    object-fit: cover;   /* Fylder skærmen uden deformation */
 }

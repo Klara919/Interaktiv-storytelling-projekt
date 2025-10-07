@@ -4,6 +4,11 @@ const visNavn = document.getElementById('visNavn');
 // Hent navnet fra localStorage
 const navn = localStorage.getItem('stjerneNavn') || "Ingen navn fundet";
 
+const stjerneNavn = localStorage.getItem('stjerneNavn');
+if (stjerneNavn) {
+    document.getElementById("visNavn").textContent = stjerneNavn;
+}
+
 // Sæt navnet i h2 og tilføj teksten "kollapsede" bagefter
 visNavn.textContent = `${navn} kollapsede...`;
 

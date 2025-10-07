@@ -32,10 +32,10 @@ rightArrow.addEventListener('click', (e) => {
   localStorage.setItem('stjerneNavn', navn);
 
   // Fade ind video
-  transitionVideo.style.display = 'block';
-  transitionVideo.style.opacity = 0;
-  transitionVideo.style.transition = 'opacity 0.8s ease-in';
-  transitionVideo.play();
+transitionVideo.style.display = 'block';  // Gør videoen synlig, hvis den tidligere var skjult (display: none)
+transitionVideo.style.opacity = 0; // Sæt start-opacitet til 0, så vi kan lave en fade-in effekt
+transitionVideo.style.transition = 'opacity 0.8s ease-in'; // Definer CSS-transition for opacitet: // 0.8 sekunder med 'ease-in' timing, så opaciteten gradvist går fra 0 til 1
+transitionVideo.play(); // Start videoafspilning
 
   setTimeout(() => {
     transitionVideo.style.opacity = 1;

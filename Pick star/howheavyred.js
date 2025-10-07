@@ -35,38 +35,43 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
   
-    // Funktion til at tjekke overlap mellem stjerne og vægt
-    function checkOverlap(star) {
-      const rStar = star.getBoundingClientRect();
-      const rWeight = weight.getBoundingClientRect();
-  
-      const overlap =
-        !(rStar.right < rWeight.left ||
-          rStar.left > rWeight.right ||
-          rStar.bottom < rWeight.top ||
-          rStar.top > rWeight.bottom);
-  
-      if (overlap) {
-        star.style.transition = "opacity 0.6s ease";
-        star.style.opacity = "0";
-        setTimeout(() => (star.style.display = "none"), 600);
-  
-        if (star.id === "lilred") {
-          weight.style.display = "none";
-          weightLR.style.display = "block";
-        } else if (star.id === "bigred") {
-          weight.style.display = "none";
-          weightBR.style.display = "block";
-  
-          // Transition to another page after fade
-          setTimeout(() => {
-            window.location.href = "../Supernova/Supernova2.html"; // <-- Your target page
-          }, 800);
-        }
-      } else {
-        star.style.left = "";
-        star.style.top = "";
+  // Funktion til at tjekke overlap mellem stjerne og vægt
+  function checkOverlap(star) {
+    const rStar = star.getBoundingClientRect();
+    const rWeight = weight.getBoundingClientRect();
+
+    const overlap =
+      !(rStar.right < rWeight.left ||
+        rStar.left > rWeight.right ||
+        rStar.bottom < rWeight.top ||
+        rStar.top > rWeight.bottom);
+
+    if (overlap) {
+      star.style.transition = "opacity 0.6s ease";
+      star.style.opacity = "0";
+      setTimeout(() => (star.style.display = "none"), 600);
+
+      if (star.id === "lilred") {
+        weight.style.display = "none";
+        weightLR.style.display = "block";
+
+        // Skift til planetarisktage.html efter fade
+        setTimeout(() => {
+          window.location.href = "../Planetarisktage/planetarisktage.html";
+        }, 800);
+
+      } else if (star.id === "bigred") {
+        weight.style.display = "none";
+        weightBR.style.display = "block";
+
+        // Transition to another page after fade
+        setTimeout(() => {
+          window.location.href = "../Supernova/Supernova2.html"; 
+        }, 800);
       }
+    } else {
+      star.style.left = "";
+      star.style.top = "";
     }
-  });
-  
+  }
+});

@@ -1,89 +1,91 @@
+/* GLOBAL STYLING */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;           /* Fjern standardmargener på alle elementer */
+    padding: 0;          /* Fjern standardpadding på alle elementer */
+    box-sizing: border-box; /* Inkluder padding og border i elementets bredde/højde */
 }
 
-  
-  /* Sikre at baggrunden er full screen  */
-  #background {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
+/* BAGGRUND */
+#background {
+    position: relative;  /* Relativ positionering: bruges som referencepunkt for absolut placerede børn (fx baggrundsbilledet) */
+    height: 100vh;       /* Fylder hele højden af viewporten */
+    overflow: hidden;    /* Skjuler alt, der går udenfor containeren */
 }
-  
-  #background img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1; /* ligger bag overlay */
-    object-fit: cover; /* fylder hele baggrunden uden at deformere */
-}
-  
-  /* Overlay content container, ligger menu og logo henover video */
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
+
+#background img {
+    position: absolute;  /* Absolut positionering: placeres i forhold til nærmeste relative forælder (#background) */
+    top: 50%;            /* Flytter toppen af billedet 50% ned fra forælderens top */
+    left: 50%;           /* Flytter venstre kant 50% ind fra forælderens venstre kant */
+    min-width: 100vw;    /* Mindst 100% af viewport-bredden */
+    min-height: 100vh;   /* Mindst 100% af viewport-højden */
+    width: auto;         /* Behold proportioner */
+    height: auto;        /* Behold proportioner */
+    transform: translate(-50%, -50%); /* Flytter billedet tilbage 50% af sin egen bredde og højde for perfekt centering */
+    z-index: -1;         /* Ligger bag alt andet indhold */
+    object-fit: cover;   /* Fylder området uden at deformere billedet */
 }
 
 
-#button-container {
-    margin-top: 200px; /* juster procenten til hvor langt ned du vil have den */
-    display: flex;
-    justify-content: center;
-
+/* OVERLAY (INDHOLD)*/
+.overlay {
+    position: absolute;  /* Absolut positionering: fylder hele forælderen (#background eller body) */
+    top: 0;              /* Starter ved toppen af forælder */
+    left: 0;             /* Starter ved venstre kant af forælder */
+    z-index: 1;          /* Ligger ovenpå baggrunden */
+    width: 100vw;        /* Fylder hele bredden af viewport */
+    height: 100vh;       /* Fylder hele højden af viewport */
+    display: flex;       /* Flexbox bruges til nem centering og layout */
+    flex-direction: column; /* Elementer stables lodret */
+    align-items: center; /* Centrerer indhold vandret */
 }
 
 
+/* OVERSKRIFTER H1/H2 */
 .overlay h1 {
-    font-family: future earth , sans-serif;
-    color: white;
-    text-align: center;
-    margin-top: 250px;
-    font-size: 60px;
+    font-family: "Future Earth", sans-serif; /* Font til overskrifter */
+    color: white;        /* Hvid tekst */
+    text-align: center;  /* Centrer teksten */
+    margin-top: 25vh;    /* Placer overskriften 25% ned fra toppen af viewport */
+    font-size: 60px;     /* Fontstørrelse i px */
 }
 
 .overlay h2 {
-    font-family: exo 2 , sans-serif;
+    font-family: "Exo 2", sans-serif;  /* Font til underoverskrifter/tekst */    
     color: white;
     text-align: center;
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 5vh;      /* Lidt afstand fra H1 */
 }
 
-  
+
+/* KNAPCONTAINER */
 #button-container {
-    margin-top: 200px; 
-    display: flex;
-    justify-content: center;
-    gap: 300px; /* afstand mellem knapperne */
+    margin-top: 25vh;     /* Afstand fra overskrifter til knapper */
+    display: flex;        /* Flexbox for nem placering af knapper */
+    justify-content: center; /* Centrer knapper vandret */
+    gap: 20vw;             /* Afstand mellem knapperne (responsiv) */
 }
+
+
+/* KNAPPER */
 
 #button-container a {
-    display: inline-block;
-    text-decoration: none;
-    background-color: #213768;
-    color: white;
-    padding: 20px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-family: 'Audiowide', sans-serif;
-    border: 4px solid #12D7E1;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-    width: 250px;  /* ens bredde for alle knapper */
-    text-align: center; /* centrer teksten */
+    display: inline-block;   /* Blokerer som inline-element, så padding virker */
+    text-decoration: none;   /* Fjern understregning på link */
+    background-color: #213768; /* Blå baggrund */
+    color: white;            /* Hvid tekst */
+    padding: 2vh 4vw;        /* Indvendig afstand  */
+    border-radius: 5vh;      /* Afrundede hjørner */
+    cursor: pointer;         /* Pointer cursor ved hover */
+    font-family: "Audiowide", sans-serif;
+    border: 0.5vh solid #12D7E1; /* Lys blå kant */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Glidende hovereffekt */
+    width: 20vw;             /* Ens bredde for alle knapper */
+    text-align: center;      /* Centrer tekst inde i knappen */
 }
 
+/* Hover-effekt på knapper */
 #button-container a:hover {
-    background-color: #12D7E1;
-    border-color: white; 
+    background-color: #12D7E1; /* Lysere blå */
+    border-color: white;        /* Kant bliver hvid */
 }
