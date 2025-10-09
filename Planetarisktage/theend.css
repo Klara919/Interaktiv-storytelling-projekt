@@ -34,8 +34,6 @@
     height: 100%;               /* Fylder hele højden */
   }
   
-
-  
   /* Overskrift H1 */
   h1 {
     font-family: future earth, sans-serif;   /* Specifik skrifttype */
@@ -43,16 +41,13 @@
     text-align: center;
     margin-top: 20vh;                    /* Afstand fra toppen */
     font-size: 70px;                         /* Stor titel */
-
   }
   
-
   /* Container til knap */
 #button-container {
     margin-top: 30vh;          /* Afstand fra toppen af overlay */
     justify-content: center;    /* Centrerer knappen horisontalt */
     display: flex;              /* Brug flexbox for nem centrering */
-
   }
 
   /* Knappen inde i button-container */

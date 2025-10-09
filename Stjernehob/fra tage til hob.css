@@ -1,106 +1,108 @@
+/* Nulstil margin, padding og box-sizing for alle elementer */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  
-  /* Sikre at baggrunden er full screen  */
-  #background {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  #background img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1; /* ligger bag overlay */
-    object-fit: cover; /* fylder hele baggrunden uden at deformere */
-  }
-  
-  /* Overlay content container, ligger menu og logo henover video */
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-  }
-  
-  
-  .overlay h1 {
-    font-family: future earth , sans-serif;
-    color: white;
-    margin-left: 80px;
-    margin-top: 80px;
-    font-size: 120px;
-  }
-  
-  
-  .overlay p {
-    font-family: 'Exo 2', sans-serif;
-    color: white;  
-    font-size: 25px;
-    margin-left: 80px;
-    margin-top: 30px;
-  }
-
-#bowl {
-    position: absolute;
-    top: 400px;
-    left: 740px;
-    transform: translate(-50%, -50%);
-    width: 90rem; /* justér størrelse efter behov */
-    z-index: 1; /* lavere end knappen */
+  margin: 0;              /* Fjerner standard margin fra alle elementer */
+  padding: 0;             /* Fjerner standard padding fra alle elementer */
+  box-sizing: border-box; /* Inkluderer padding og border i elementets bredde/højde */
 }
 
-  
-  #button-container {
-    position: relative; /* skal være positioneret for at z-index virker */
-    z-index: 10;        /* højere end bowl og overlay */
-    margin-top: 400px; /* juster procenten til hvor langt ned du vil have den */
-    display: flex;
-    justify-content: center;
-  
-  }
-  
-  
-  #button-container a {
-    display: inline-block;
-    text-decoration: none;
-    background-color: #213768;
-    color: white;
-    padding: 20px 80px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-family: 'Audiowide', sans-serif;
-    border: 4px solid #12D7E1;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  
-  }
-  
-  #button-container a:hover {
-    background-color: #12D7E1;
-    border-color: white; 
-  }
+/* Baggrund container fylder hele skærmen */
+#background {
+  position: relative; /* Absolut placerede børn placeres i forhold til denne container */
+  height: 100vh;      /* Fylder hele viewport-højden */
+  overflow: hidden;   /* Skjuler alt indhold, der går udenfor containeren */
+}
 
-  #transitionVideo {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* VIGTIGT: fylder hele skærmen og beskærer hvis nødvendigt */
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity 1s;
+/* Baggrundsbillede inde i #background */
+#background img {
+  position: absolute;          /* Absolut placering */
+  top: 50%;                    /* Vertikal centering */
+  left: 50%;                   /* Horisontal centering */
+  min-width: 100%;             /* Minimum bredde fylder hele container */
+  min-height: 100%;            /* Minimum højde fylder hele container */
+  width: auto;                 /* Automatisk bredde */
+  height: auto;                /* Automatisk højde */
+  transform: translate(-50%, -50%); /* Flytter elementet, så centerpunktet rammer midten af container */
+  z-index: -1;                 /* Ligger bag overlay */
+  object-fit: cover;           /* Fylder hele container uden at deformere billedet */
+}
+
+/* Overlay container til tekst, knapper og logo */
+.overlay {
+  position: absolute;  /* Absolut placering ovenpå baggrund */
+  top: 0;              /* Starter fra toppen */
+  left: 0;             /* Starter fra venstre kant */
+  z-index: 1;          /* Ligger over baggrunden */
+  width: 100%;         /* Fylder hele bredden af viewport */
+  height: 100%;        /* Fylder hele højden af viewport */
+}
+
+/* Hovedoverskrift H1 i overlay */
+.overlay h1 {
+  font-family: future earth , sans-serif; /* Font */
+  color: white;                           /* Hvid tekst */
+  margin-left: 6vw;                      /* Margin fra venstre kant */
+  margin-top: 10vh;                       /* Margin fra toppen */
+  font-size: 120px;                       /* Stor fontstørrelse */
+}
+
+/* Underoverskrift H2 i overlay */
+.overlay h2 {
+  font-family: 'Exo 2', sans-serif; /* Font */
+  color: white;                      /* Hvid tekst */
+  font-size: 25px;                   /* Fontstørrelse */
+  margin-left: 6vw;                 /* Margin fra venstre kant */
+  margin-top: 5vh;                  /* Margin fra toppen */
+}
+
+/* Bowl-billede */
+#bowl {
+  position: absolute;           /* Absolut placering */
+  top: 50vh;                   /* Afstand fra toppen */
+  left: 50vw;                  /* Afstand fra venstre */
+  transform: translate(-50%, -50%); /* Centrerer elementet ved dets position */
+  width: 90rem;                 /* Bredde */
+  z-index: 1;                   /* Ligger under knapperne */
+}
+
+/* Container for knappen */
+#button-container {
+  position: relative;          /* Skal være positioneret, så z-index virker */
+  z-index: 10;                 /* Ligger over bowl og overlay */
+  margin-top: 48vh;           /* Hvor langt ned knappen ligger */
+  display: flex;               /* Flexbox til centrering */
+  justify-content: center;     /* Centrerer knappen horisontalt */
+}
+
+/* Knappen inde i containeren */
+#button-container a {
+  display: inline-block;       /* Blokerer som inline-block for padding */
+  text-decoration: none;       /* Fjern understregning */
+  background-color: #213768;   /* Baggrundsfarve */
+  color: white;                /* Tekstfarve */
+  padding: 3vh 5vw;          /* Indvendig afstand */
+  border-radius: 40px;         /* Afrundede hjørner */
+  cursor: pointer;             /* Hånd-ikon ved hover */
+  font-family: 'Audiowide', sans-serif; /* Font */
+  border: 4px solid #12D7E1;   /* Ydre kant */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth hover effekt */
+}
+
+/* Hover-effekt på knappen */
+#button-container a:hover {
+  background-color: #12D7E1;  /* Baggrund ændres */
+  border-color: white;         /* Kant ændres */
+}
+
+/* Transition-video styling */
+#transitionVideo {
+  display: none;               /* Skjult som standard */
+  position: fixed;             /* Ligger fast i viewport */
+  top: 0;                      /* Starter fra toppen */
+  left: 0;                     /* Starter fra venstre */
+  width: 100%;                 /* Fylder hele viewport bredde */
+  height: 100%;                /* Fylder hele viewport højde */
+  object-fit: cover;           /* Fylder container uden at deformere video */
+  z-index: 9999;               /* Ligger over alt andet */
+  opacity: 0;                  /* Start med fuldt gennemsigtig */
+  transition: opacity 1s;      /* Fade-effekt når opacitet ændres */
 }

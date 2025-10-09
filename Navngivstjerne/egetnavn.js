@@ -52,3 +52,5 @@ transitionVideo.play(); // Start videoafspilning
     window.location.href = 'stjernetage.html';
   }, 3000);
 });
+
+

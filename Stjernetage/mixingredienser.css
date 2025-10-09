@@ -165,6 +165,11 @@ details .content {
     box-shadow: 0 0.4vh 1vh rgba(0,0,0,0.2); /* Skygge effekt */
 }
 
+details .content p {
+    font-size: 0.85rem;          /* Bevarer font-size i rem */
+    line-height: 1.5;           /* Forbedrer læsbarhed */
+}
+
 details[open] .content {
     display: block;             
     border-top-left-radius: 0;  

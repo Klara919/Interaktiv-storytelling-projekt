@@ -1,78 +1,88 @@
-
+/* Nulstil margin, padding og box-sizing for alle elementer */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  
-  /* Sikre at baggrunden er full screen  */
-  #background {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  #bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1; /* ligger bag overlay */
-    object-fit: cover; /* fylder hele baggrunden uden at deformere */
+  margin: 0;              /* Fjerner standard margin fra alle elementer */
+  padding: 0;             /* Fjerner standard padding fra alle elementer */
+  box-sizing: border-box; /* Inkluderer padding og border i elementets bredde/højde */
 }
-  
-  /* Overlay content container, ligger menu og logo henover video */
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-  }
 
+/* Baggrund container fylder hele skærmen */
+#background {
+  position: relative; /* Absolut placerede børn placeres i forhold til denne container */
+  height: 100vh;      /* Fylder hele viewport-højden */
+  overflow: hidden;   /* Skjuler alt indhold der går udenfor container */
+}
 
-  
+/* Baggrundsvideo */
+#bg-video {
+  position: absolute;          /* Absolut placering inden for #background */
+  top: 50%;                    /* Vertikal centering */
+  left: 50%;                   /* Horisontal centering */
+  min-width: 100%;             /* Minimum bredde fylder hele container */
+  min-height: 100%;            /* Minimum højde fylder hele container */
+  width: auto;                 /* Automatisk justering af bredde */
+  height: auto;                /* Automatisk justering af højde */
+  transform: translate(-50%, -50%); /* Flytter videoen, så centerpunktet rammer containerens midte */
+  z-index: -1;                 /* Video ligger bag overlay */
+  object-fit: cover;           /* Fylder container uden at deformere video */
+}
+
+/* Overlay container (tekst, logo, knapper ovenpå video) */
+.overlay {
+  position: absolute;  /* Absolut position over baggrund */
+  top: 0;              /* Starter fra toppen af container */
+  left: 0;             /* Starter fra venstre kant */
+  z-index: 1;          /* Ligger foran video */
+  width: 100%;         /* Fylder hele bredden af viewport */
+  height: 100%;        /* Fylder hele højden af viewport */
+}
+
+/* Overskrift H1 styling */
 .overlay h1 {
-    font-family: 'Audiowide', sans-serif;
-    color: white;
-    margin-top: 100px;
-    margin-left: 80px;
-    font-size: 100px;
+  font-family: 'Audiowide', sans-serif; /* Specifik font */
+  color: white;                         /* Hvid tekst */
+  margin-top: 10vh;                     /* Margin fra toppen (10% af viewport-højde) */
+  margin-left: 10vh;                    /* Margin fra venstre (10% af viewport-højde) */
+  font-size: 100px;                     /* Stor fontstørrelse */
+}
 
-  }
-  
+/* Overskrift H2 styling */
+.overlay h2 {
+  font-family: 'Exo 2', sans-serif; /* Font */
+  color: white;                      /* Hvid tekst */
+  margin-top: 5vh;                   /* Margin fra toppen */
+  margin-left: 10vh;                 /* Margin fra venstre */
+  font-size: 30px;                   /* Fontstørrelse */
+}
+
+/* Paragraph styling i overlay */
 .overlay p {
-    font-family: 'Exo 2', sans-serif;
-    color: white;
-    margin-top: 20px;
-    margin-left: 80px;
-    font-size: 30px;
-  }
+  font-family: 'Exo 2', sans-serif;  /* Font */
+  color: white;                       /* Hvid tekst */
+  margin-top: 60vh;                   /* Margin fra toppen (meget nede på siden) */
+  margin-left: 153vh;                 /* Margin fra venstre (kan være for stor, overvej %) */
+  font-size: 20px;                    /* Fontstørrelse */
+}
 
-  #bowl{
-      position: absolute;
-      top: 30rem;
-      left: 38rem;
-      width: 15rem; /* justér størrelse efter behov */
-  }
+/* Bowl billede */
+#bowl {
+  position: absolute; /* Absolut placering */
+  top: 30rem;         /* Afstand fra toppen */
+  left: 38rem;        /* Afstand fra venstre */
+  width: 15rem;       /* Bredde på billedet */
+}
 
-  .navigation-arrows {
-    position: fixed;   /* så de bliver nederst uanset scroll */
-    bottom: 20px;
-    display: flex;
-    right: 40px;
+/* Navigation pile container */
+.navigation-arrows {
+  position: fixed;  /* Bliver på skærmen selv ved scroll */
+  bottom: 20px;     /* Afstand fra bunden af viewport */
+  display: flex;    /* Flexbox til placering af pile */
+  right: 40px;      /* Afstand fra højre kant */
+  z-index: 10;      /* Ligger over alt andet */
+}
 
-    z-index: 10;
-  }
-  
-  .navigation-arrows img {
-    width: 100px;  /* størrelse på pilene */
-    height: auto;
-    cursor: pointer;
-  }
+/* Navigation pile billeder */
+.navigation-arrows img {
+  width: 100px;  /* Bredde på pile */
+  height: auto;  /* Bevarer proportioner */
+  cursor: pointer; /* Musemarkør ændres til hånd-ikon */
+}

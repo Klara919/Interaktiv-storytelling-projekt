@@ -148,7 +148,7 @@ details[open] .content {
 
 details .content p {
     font-size: 13px;
-    line-height: 1.3; /* Tættere linjeafstand */
+    line-height: 1.5; /* Tættere linjeafstand */
     margin: 0;        /* Fjern standard margin */
     color: black;     /* Tekstfarve inde i fakta-boksen */
 }

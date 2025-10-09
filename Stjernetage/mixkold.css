@@ -56,7 +56,7 @@
 /* Overskrift h2 i overlay */
 .overlay h2 {
     font-family: 'Future Earth', sans-serif; /* Font */
-    color: white;                           /* Tekstfarve */
+    color: #213768;                           /* Tekstfarve */
     text-align: left;                        /* Venstrestillet */
     padding-left: 9vh;                     /* Indvendig venstre padding */
     margin-top: 9vh;                       /* Afstand fra toppen */
@@ -66,7 +66,7 @@
 /* Paragraph p i overlay*/
 .overlay p {
     font-family: 'Exo 2', sans-serif;       /* Font */
-    color: white;                            /* Tekstfarve */
+    color: #213768;                            /* Tekstfarve */
     text-align: left;                        /* Venstrestillet */
     font-size: 20px;                         /* Font size beholdes i px */
     margin-top: -1vh;                        /* Lidt overlap med overskrift */
