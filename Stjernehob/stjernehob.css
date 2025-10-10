@@ -58,8 +58,8 @@
 .overlay p {
   font-family: 'Exo 2', sans-serif;  /* Font */
   color: white;                       /* Hvid tekst */
-  margin-top: 60vh;                   /* Margin fra toppen (meget nede på siden) */
-  margin-left: 153vh;                 /* Margin fra venstre (kan være for stor, overvej %) */
+  margin-top: 3vh;                   /* Margin fra toppen (meget nede på siden) */
+  margin-left: 6vw;                 /* Margin fra venstre (kan være for stor, overvej %) */
   font-size: 20px;                    /* Fontstørrelse */
 }
 
@@ -82,7 +82,7 @@
 
 /* Navigation pile billeder */
 .navigation-arrows img {
-  width: 100px;  /* Bredde på pile */
+  width: 200px;  /* Bredde på pile */
   height: auto;  /* Bevarer proportioner */
   cursor: pointer; /* Musemarkør ændres til hånd-ikon */
 }

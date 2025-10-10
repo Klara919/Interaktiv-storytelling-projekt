@@ -42,7 +42,7 @@ h1 {
     font-family: 'Future Earth', sans-serif; /* Specifik font */
     color: white;                            /* Hvid tekst */
     text-align: left;                        /* Venstrestillet tekst */
-    padding-left: 4vh;                       /* Afstand fra venstre kant */
+    padding-left: 5vw;                       /* Afstand fra venstre kant */
     margin-top: 5vh;                         /* Afstand fra toppen af overlay */
     font-size: 100px;                        /* Beholder font-size i px som ønsket */
 }
@@ -53,7 +53,7 @@ h2{
     color: white;                            /* Hvid tekst */
     text-align: left;                        /* Venstrestillet tekst */
     font-size: 25px;                         /* Beholder font-size i px */
-    padding-left: 4vh;                       /* Afstand fra venstre kant */
+    padding-left: 5vw;                       /* Afstand fra venstre kant */
     margin-top: -2vh;                        /* Negativ margin til at reducere afstand fra h1 */
 }
 
@@ -89,8 +89,9 @@ h2{
 #score {
     position: absolute;         
     top: 6vh;                    /* Afstand fra toppen */
-    right: 2vh;                  /* Afstand fra højre */
+    right: 4vw;                  /* Afstand fra højre */
     font-size: 40px;             /* Beholder px for font-size */
+    font-family: exo 2, sans-serif; 
 }
 
 /* Pop-animation */

@@ -151,6 +151,7 @@ details .content p {
     line-height: 1.5; /* Tættere linjeafstand */
     margin: 0;        /* Fjern standard margin */
     color: black;     /* Tekstfarve inde i fakta-boksen */
+   
 }
 
 .navigation-arrows {
