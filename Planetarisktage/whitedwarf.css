@@ -159,15 +159,50 @@ details .content p {
     color: black;     /* Tekstfarve inde i fakta-boksen */
 }
 
+
+#transition-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 9999;
+  display: none; /* skjult indtil knap trykkes */
+}
+
 #transitionVideo {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* VIGTIGT: fylder hele skærmen og beskærer hvis nødvendigt */
-    z-index: 9999;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#flyup-name {
+  position: absolute;
+  bottom: 30vh;
+  left:60vw; /* starter i venstre hjørne */
+  color: white;
+  font-size: 2rem; /* startstørrelse */
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(255,255,255,0.9);
+  opacity: 0;
+}
+
+@keyframes flyUp {
+  0% {
     opacity: 0;
-    transition: opacity 1s;
+    transform: translate(0, 50%) scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(0, 0%) scale(1.5); /* bliver større */
+  }
+  60% {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1.2); /* starter at skrumpe lidt */
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -150%) scale(0.5); /* meget mindre og forsvinder */
+  }
 }

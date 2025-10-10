@@ -46,7 +46,7 @@
     color: white;        /* Hvid tekst */
     text-align: center;  /* Centrer teksten */
     margin-top: 25vh;    /* Placer overskriften 25% ned fra toppen af viewport */
-    font-size: 60px;     /* Fontstørrelse i px */
+    font-size: 80px;     /* Fontstørrelse i px */
 }
 
 .overlay h2 {

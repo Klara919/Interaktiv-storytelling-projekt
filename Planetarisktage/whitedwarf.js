@@ -1,19 +1,28 @@
-const button = document.getElementById('openButton');
-const transitionVideo = document.getElementById('transitionVideo');
-
-button.addEventListener('click', function(event) {
-    event.preventDefault();
-
-    // Vis og fade-in videoen
-    transitionVideo.style.display = 'block';
-    setTimeout(() => {
-        transitionVideo.style.opacity = 1;
-    }, 10); // lille delay for at trigger CSS transition
-
-    transitionVideo.play();
-
-    // Når videoen er færdig
-    transitionVideo.addEventListener('ended', () => {
-        window.location.href = 'theend.html'; // Ret til din ønskede side
-    });
-});
+document.addEventListener("DOMContentLoaded", () => {
+    const navn = localStorage.getItem('stjerneNavn');
+    const flyupName = document.getElementById('flyup-name');
+    const transitionContainer = document.getElementById('transition-container');
+    const transitionVideo = document.getElementById('transitionVideo');
+    const openButton = document.getElementById('openButton');
+  
+    if (navn && flyupName && openButton) {
+      flyupName.textContent = navn;
+  
+      openButton.addEventListener('click', () => {
+        // Vis transition overlay
+        transitionContainer.style.display = 'block';
+  
+        // Start video
+        transitionVideo.play();
+  
+        // Start navne-animation
+        flyupName.style.animation = 'flyUp 4s ease-out forwards 1s';
+  
+        // Redirect til theend.html når videoen er færdig
+        transitionVideo.addEventListener('ended', () => {
+          window.location.href = 'theend.html';
+        });
+      });
+    }
+  });
+  

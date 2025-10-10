@@ -73,7 +73,7 @@ h1 {
   color: white;                            /* Hvid tekstfarve */
   text-align: center;                      /* Centrerer teksten */
   margin-top: 250px;                       /* Afstand fra toppen */
-  font-size: 60px;                         /* Stor titel */
+  font-size: 80px;                         /* Stor titel */
   animation: pulseGlow 2s infinite alternate; /* Animeret glow-effekt */
 }
 

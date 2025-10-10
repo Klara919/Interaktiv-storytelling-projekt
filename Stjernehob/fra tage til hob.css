@@ -42,14 +42,14 @@
   color: white;                           /* Hvid tekst */
   margin-left: 6vw;                      /* Margin fra venstre kant */
   margin-top: 10vh;                       /* Margin fra toppen */
-  font-size: 120px;                       /* Stor fontstørrelse */
+  font-size: 100px;                       /* Stor fontstørrelse */
 }
 
 /* Underoverskrift H2 i overlay */
 .overlay h2 {
   font-family: 'Exo 2', sans-serif; /* Font */
   color: white;                      /* Hvid tekst */
-  font-size: 25px;                   /* Fontstørrelse */
+  font-size: 30px;                   /* Fontstørrelse */
   margin-left: 6vw;                 /* Margin fra venstre kant */
   margin-top: 5vh;                  /* Margin fra toppen */
 }
