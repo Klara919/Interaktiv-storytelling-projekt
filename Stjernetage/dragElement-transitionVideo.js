@@ -16,22 +16,23 @@ const bowl = document.getElementById('bowl');
 // Finder transition-videoen
 const transitionVideo = document.getElementById('transitionVideo');
 
-// Tilføjer mousedown-event til hvert billede
+// Tilføjer mousedown-event til hvert billede -  aktiverer funktionen, der håndterer selve trækbevægelsen
 draggableImages.forEach(image => {
     image.addEventListener('mousedown', onMouseDown);
 });
 
+//klikkes der på et billede, identificeres det specifikke element gennem event.target, så koden ved præcist, hvilket billede der skal flyttes
 function onMouseDown(event) {
     const image = event.target;
 
-    // Beregn forskellen mellem musens klikpunkt og billedets øverste venstre hjørne
+// Beregner  forskellen mellem musens klikpunkt og billedets position (øverste venstre hjørne)
     let shiftX = event.clientX - image.getBoundingClientRect().left;
     let shiftY = event.clientY - image.getBoundingClientRect().top;
 
-    // Sørg for at billedet kommer foran alt andet
+// Sørger for at billedet kommer foran alt andet
     image.style.zIndex = 1000;
 
-    // Flytter billedet til musens position
+// Flytter billedet til musens position
     function moveAt(pageX, pageY) {
         image.style.left = pageX - shiftX + 'px';
         image.style.top = pageY - shiftY + 'px';
@@ -42,6 +43,7 @@ function onMouseDown(event) {
         checkCollision(image);
     }
 
+    // Dette forhindrer, at billedet bliver ved med at bevæge sig, efter man slipper musen.
     document.addEventListener('mousemove', onMouseMove);
 
     image.onmouseup = function() {
@@ -61,17 +63,18 @@ function checkCollision(image) {
         imageRect.top < bowlRect.bottom &&
         imageRect.bottom > bowlRect.top
     ) {
-        // Fjern billedet
+
+// Fjerner billedet
         image.style.display = 'none';
 
-        // Fjern tilhørende section
+// Fjerner tilhørende section
         const sectionId = sectionMap[image.id];
         if (sectionId) {
             const section = document.getElementById(sectionId);
             if (section) section.style.display = 'none';
         }
 
-        // Tjek om alle elementer er smidt i skålen
+ // Tjekker om alle elementer er smidt i skålen
         const allDraggables = Object.keys(sectionMap);
         const allGone = allDraggables.every(id => {
             const el = document.getElementById(id);

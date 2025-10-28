@@ -61,7 +61,7 @@ p {
 #play-btn {
     position: absolute;       
     top: 85vh;                /* Placering lodret (kan justeres) */
-    left: 85vh;               /* Placering vandret (kan justeres) */
+    left: 52vw;               /* Placering vandret (kan justeres) */
     transform: translate(-50%, -50%); /* Sørger for at knappen er centreret omkring punktet */
     background-color: #213768; 
     color: white;
